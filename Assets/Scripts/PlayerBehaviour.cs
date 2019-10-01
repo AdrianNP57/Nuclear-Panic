@@ -8,7 +8,6 @@ public class PlayerBehaviour : MonoBehaviour
     public bool mIsFixedJump;
     public float mSpeedRun;
 
-
     private Rigidbody2D mRigidBody2D;
     private List<Collision2D> mAllCollisions;
 
@@ -83,7 +82,7 @@ public class PlayerBehaviour : MonoBehaviour
             
 			mBufferLevels.Add(newLvl);
             
-			++mNbLvl; //increase the number of levels already instantiate
+			++mNbLvl; //increase the number of levels already 
         }
 
 

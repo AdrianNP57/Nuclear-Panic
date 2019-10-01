@@ -25,8 +25,10 @@ public class CameraFollowingPlayer : MonoBehaviour {
                 Vector3 currentCameraPos = gameObject.transform.position;
                 var playerBehaviour = (mPlayer.GetComponent<PlayerBehaviour>() as PlayerBehaviour);
 
-                gameObject.transform.position = new Vector3(currentCameraPos.x + playerBehaviour.mSpeedRun * Time.deltaTime,
-                    currentCameraPos.y, currentCameraPos.z);
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerBehaviour.mSpeedRun, 0);
+
+                //gameObject.transform.position = new Vector3(currentCameraPos.x + playerBehaviour.mSpeedRun * Time.deltaTime,
+                    //currentCameraPos.y, currentCameraPos.z);
 
                 if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 0)
                 {
