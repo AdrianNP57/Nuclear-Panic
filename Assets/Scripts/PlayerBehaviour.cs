@@ -21,7 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
     //level generation
     private int mNbLvl;
     public List<GameObject> mLevels;
-    private List<GameObject> mBufferLevels;
+    public List<GameObject> mBufferLevels;
 
     // Start is called before the first frame update
     void Awake()
@@ -68,7 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         //Autogeneration Level 
         //TODO : Move it to a better place...
-        if ((gameObject.transform.position.x - 50 * mNbLvl) > 20){
+        if ((gameObject.transform.position.x - 50 * mNbLvl) > 20) {
             int indLvlToInstantiate = (int)(UnityEngine.Random.value * mLevels.Count);//chose randomly a level​
             GameObject newLvl = GameObject.Instantiate(mLevels[indLvlToInstantiate],
                                                        new Vector3(50 + mNbLvl * 50, 0, 0),

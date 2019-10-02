@@ -35,17 +35,24 @@ public class GlassBehaviour : MonoBehaviour
             tileMap.GetComponent<TilemapRenderer>().material = darkMaterial;
             thugGlasses.SetActive(true);
             haloLight.SetActive(true);
+
+            
         }
         else if (Input.GetKeyDown(KeyCode.G) && (check == 1))
         {
             Debug.Log("Glasses off");
             check = 0;
-            changeColor.backgroundColor = Color.blue/*new Color(49.0f, 77.0f, 121.0f)*/;
+            changeColor.backgroundColor = new Color(0.2f, 0.3f, 0.5f);
             thugGlasses.SetActive(false);
             haloLight.SetActive(false);
             tileMap.GetComponent<TilemapRenderer>().material = defaultMaterial;
         }
-        else { }
 
+        Material targetMaterial = check == 0 ? defaultMaterial : darkMaterial;
+        foreach (GameObject level in GetComponent<PlayerBehaviour>().mBufferLevels)
+        {
+
+            level.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TilemapRenderer>().material = targetMaterial;
+        }
     }
 }
