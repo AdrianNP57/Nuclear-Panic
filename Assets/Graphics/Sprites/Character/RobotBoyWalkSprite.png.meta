@@ -149,10 +149,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_0
       rect:
         serializedVersion: 2
-        x: 77
-        y: 1785
-        width: 101
-        height: 223
+        x: 74
+        y: 1812
+        width: 118
+        height: 211
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,7 +160,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8fcd8faa8bbf9248b8b092a75ff3d85
+      spriteID: 63eb552d3a757a04385ab09654dc070c
       internalID: -669299962240809519
       vertices: []
       indices: 
@@ -170,10 +170,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_1
       rect:
         serializedVersion: 2
-        x: 356
-        y: 1786
-        width: 98
-        height: 221
+        x: 357
+        y: 1801
+        width: 109
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,7 +181,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55055ee19407a7241b44040d5cd1e630
+      spriteID: ed790539b1dc8c7409d148e25e455cca
       internalID: -8837980460130348034
       vertices: []
       indices: 
@@ -191,10 +191,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_2
       rect:
         serializedVersion: 2
-        x: 636
-        y: 1787
-        width: 96
-        height: 219
+        x: 643
+        y: 1790
+        width: 101
+        height: 218
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,7 +202,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 77045dc96a6f90d489a87851cbfb889a
+      spriteID: 10b9b57420219874e8c6296d4d0a6f27
       internalID: 5709942351205253911
       vertices: []
       indices: 
@@ -212,10 +212,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_3
       rect:
         serializedVersion: 2
-        x: 917
-        y: 1786
-        width: 91
-        height: 220
+        x: 926
+        y: 1787
+        width: 98
+        height: 217
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,7 +223,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 060dcaee718c04148967ef19d623ef9c
+      spriteID: 48e024a5ca2b3144fbc37e632884d2b2
       internalID: 1145453890839250213
       vertices: []
       indices: 
@@ -233,10 +233,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_4
       rect:
         serializedVersion: 2
-        x: 1195
-        y: 1779
-        width: 88
-        height: 228
+        x: 1190
+        y: 1786
+        width: 110
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,7 +244,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b19857c3a39e67f48a3454be394e7807
+      spriteID: e166cc17fa348354bb640e983eadaaca
       internalID: -5148162042175684493
       vertices: []
       indices: 
@@ -254,10 +254,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_5
       rect:
         serializedVersion: 2
-        x: 1470
-        y: 1778
-        width: 87
-        height: 230
+        x: 1449
+        y: 1792
+        width: 118
+        height: 223
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,7 +265,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df848ee2669250448a475b3fa3541153
+      spriteID: 8a4fca206b05bec46be21cb94ebda094
       internalID: 2492978493503434344
       vertices: []
       indices: 
@@ -275,10 +275,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_6
       rect:
         serializedVersion: 2
-        x: 1738
-        y: 1788
-        width: 91
-        height: 221
+        x: 1714
+        y: 1809
+        width: 129
+        height: 214
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,7 +286,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 906a489bb2961924e92fab7f52cf1735
+      spriteID: 3dbfe7a50b8da124cb513756c9bb9f83
       internalID: 3164975681194524278
       vertices: []
       indices: 
@@ -296,10 +296,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_7
       rect:
         serializedVersion: 2
-        x: 83
-        y: 1516
-        width: 95
-        height: 219
+        x: 62
+        y: 1550
+        width: 135
+        height: 201
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,7 +307,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 50139d83eae487e4ab96f5d13faec261
+      spriteID: ba0be6cff7cb06541b701b8c44487d7d
       internalID: 2053086926974103239
       vertices: []
       indices: 
@@ -317,10 +317,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_8
       rect:
         serializedVersion: 2
-        x: 359
-        y: 1515
-        width: 94
-        height: 220
+        x: 342
+        y: 1540
+        width: 126
+        height: 207
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -328,7 +328,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463946faeda44474bb8d8aa8f43534c5
+      spriteID: 6103345a4f56ffc4da56812e6d9911cc
       internalID: -7465804608869120533
       vertices: []
       indices: 
@@ -338,10 +338,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_9
       rect:
         serializedVersion: 2
-        x: 641
-        y: 1511
-        width: 88
-        height: 222
+        x: 626
+        y: 1521
+        width: 117
+        height: 219
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,7 +349,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1e9ccdc92a1a654788f8fbb92e9eee5
+      spriteID: 9d4ab67196a01b64586c17af26b684c7
       internalID: -1919849576037193993
       vertices: []
       indices: 
@@ -359,9 +359,9 @@ TextureImporter:
       name: RobotBoyWalkSprite_10
       rect:
         serializedVersion: 2
-        x: 919
-        y: 1510
-        width: 87
+        x: 917
+        y: 1511
+        width: 104
         height: 222
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -370,7 +370,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3fa901bb13c6a646b38ddd21d3b9698
+      spriteID: b0641aec2b430b64f85b57665b6b2f0c
       internalID: -9204106528705652845
       vertices: []
       indices: 
@@ -380,10 +380,10 @@ TextureImporter:
       name: RobotBoyWalkSprite_11
       rect:
         serializedVersion: 2
-        x: 1197
-        y: 1510
-        width: 86
-        height: 221
+        x: 1203
+        y: 1509
+        width: 96
+        height: 220
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -391,7 +391,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 70ce87e2c229d9b428976a106594a5aa
+      spriteID: be1779a46742de14da561252b50cb630
       internalID: -3247795628690493899
       vertices: []
       indices: 
@@ -401,71 +401,8 @@ TextureImporter:
       name: RobotBoyWalkSprite_12
       rect:
         serializedVersion: 2
-        x: 1471
-        y: 1506
-        width: 87
-        height: 226
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ed3fdcbf81d502d4ab48a916ccee3568
-      internalID: -7268006367689575282
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyWalkSprite_13
-      rect:
-        serializedVersion: 2
-        x: 1735
-        y: 1504
-        width: 96
-        height: 229
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d892c33340a48a45834d4e3a3bbf3ae
-      internalID: 7993968897650660958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyWalkSprite_14
-      rect:
-        serializedVersion: 2
-        x: 77
-        y: 1231
-        width: 102
-        height: 229
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 98928a832ffdc29409383ec3d1ab5b48
-      internalID: 4649278483036679748
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RobotBoyWalkSprite_15
-      rect:
-        serializedVersion: 2
-        x: 350
-        y: 1236
+        x: 1470
+        y: 1508
         width: 103
         height: 224
       alignment: 0
@@ -475,7 +412,70 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 358bc1ebfe18e14468e6020a05c38371
+      spriteID: 28bbd064dfd1c9d4ea03eaffe13009ad
+      internalID: -7268006367689575282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotBoyWalkSprite_13
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 1508
+        width: 110
+        height: 233
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1644c9a2e78ad4f9e8e029db54f926
+      internalID: 7993968897650660958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotBoyWalkSprite_14
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1247
+        width: 119
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32e444f96f2c46043ae9001f366ecc0e
+      internalID: 4649278483036679748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RobotBoyWalkSprite_15
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 1263
+        width: 120
+        height: 213
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3883f40be6d8d444089bb87d28b6f5c2
       internalID: 3131658594535268754
       vertices: []
       indices: 
