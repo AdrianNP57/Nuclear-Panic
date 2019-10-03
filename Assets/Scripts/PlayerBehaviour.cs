@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -93,6 +94,13 @@ public class PlayerBehaviour : MonoBehaviour
             Time.timeScale = 0;
             GameObject.Destroy(gameObject);
         }
+
+        //Press Ecs to go to main menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("MainMenuScene");
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
