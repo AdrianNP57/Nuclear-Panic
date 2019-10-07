@@ -71,9 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a493f18fa3790459101a351f43f108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mOscillationMax: 0.35
+  mOscillationMax: 0
   mType: 0
-  mOscillationPerFrame: 0.015
+  mOscillationPerFrame: 0
 --- !u!1 &8938334446911014862
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,7 +296,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.47058824}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -1377,8 +1377,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9019608, g: 0.31764707, b: 0, a: 1}
-        key1: {r: 1, g: 0.5411765, b: 0.39607844, a: 1}
+        key0: {r: 0.9019608, g: 0.31764707, b: 0, a: 0.47058824}
+        key1: {r: 1, g: 0.5411765, b: 0.39607844, a: 0.47058824}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
