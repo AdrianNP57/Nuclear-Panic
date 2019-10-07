@@ -5,10 +5,13 @@ using UnityEngine;
 public class CameraFollowingPlayer : MonoBehaviour {
     public bool isConstantSpeed;
     public GameObject mPlayer;
+    public float mXOffset;
     public float mYOffset;
 
     void Start() {
-        gameObject.transform.Translate(new Vector3(0, mYOffset, 0));
+        //gameObject.transform.Translate(new Vector3(mPlayer.transform.position.x - unitsXOffset, mYOffset, 0));
+        float unitsXOffset = Camera.main.ScreenToWorldPoint(new Vector3(mXOffset, 0, 0)).x;
+        gameObject.transform.position = new Vector3(mPlayer.transform.position.x - unitsXOffset, mYOffset, -10);
     }
 
     void Update() {
@@ -26,9 +29,6 @@ public class CameraFollowingPlayer : MonoBehaviour {
                 var playerBehaviour = (mPlayer.GetComponent<PlayerBehaviour>() as PlayerBehaviour);
 
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerBehaviour.mSpeedRun, 0);
-
-                //gameObject.transform.position = new Vector3(currentCameraPos.x + playerBehaviour.mSpeedRun * Time.deltaTime,
-                    //currentCameraPos.y, currentCameraPos.z);
 
                 if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 0)
                 {
