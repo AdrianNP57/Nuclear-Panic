@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraFollowingPlayer : MonoBehaviour {
     public bool isConstantSpeed;
@@ -33,7 +34,7 @@ public class CameraFollowingPlayer : MonoBehaviour {
                 if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 0)
                 {
                     Debug.Log("GAME OVER");
-                    Time.timeScale = 0;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
             }
         }

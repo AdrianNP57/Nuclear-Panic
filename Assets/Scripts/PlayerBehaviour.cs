@@ -91,7 +91,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (gameObject.transform.position.y < -10.0f)
         {
             Debug.Log("GAMEOVER");
-            Time.timeScale = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             GameObject.Destroy(gameObject);
         }
 
