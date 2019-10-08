@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6358412776515956754}
   m_Layer: 8
   m_Name: AlphaRadiation
-  m_TagString: Untagged
+  m_TagString: Alpha
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,9 +71,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a493f18fa3790459101a351f43f108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mOscillationMax: 0
+  fxPlayer: {fileID: 0}
+  mOscillationMax: 0.35
   mType: 0
-  mOscillationPerFrame: 0
+  mOscillationPerFrame: 0.015
 --- !u!1 &8938334446911014862
 GameObject:
   m_ObjectHideFlags: 0

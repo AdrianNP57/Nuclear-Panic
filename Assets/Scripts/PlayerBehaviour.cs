@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public AudioEffectPlayer fxPlayer;
+
     public bool mIsFixedJump;
     public float mSpeedRun;
 
@@ -24,6 +26,9 @@ public class PlayerBehaviour : MonoBehaviour
     public List<GameObject> mLevels;
     public List<GameObject> mBufferLevels;
 
+    private bool onGround = true;
+    private bool jumpEnabled = true;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -40,13 +45,23 @@ public class PlayerBehaviour : MonoBehaviour
         //Infinite run
         mRigidBody2D.velocity = new Vector2(mSpeedRun, mRigidBody2D.velocity.y);
 
-        //Jump
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            bool onGround = mAllCollisions.Exists(col => col.collider.CompareTag("Ground"));
+        // Land
+        bool previouslyOnGround = onGround;
+        onGround = mAllCollisions.Exists(col => col.collider.CompareTag("Ground"));
 
-            if (onGround)
+        if (onGround && !previouslyOnGround)
+        {
+            fxPlayer.Play(fxPlayer.land);
+        }
+
+        //Jump
+        if (Input.GetKey(KeyCode.Space))
+        {
+            if (onGround && jumpEnabled)
             {
+                fxPlayer.Play(fxPlayer.jump);
+                StartCoroutine(PreventMultiJump());
+
                 if (!mIsFixedJump)
                 {
                     //V1 : Imply physics; Depends of 
@@ -112,5 +127,12 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Collision2D colToRemove = mAllCollisions.Find(c => c.gameObject.Equals(collision.gameObject));
         mAllCollisions.Remove(colToRemove);
+    }
+
+    private IEnumerator PreventMultiJump()
+    {
+        jumpEnabled = false;
+        yield return new WaitForSeconds(0.1f);
+        jumpEnabled = true;
     }
 }

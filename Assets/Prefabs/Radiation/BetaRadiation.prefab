@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 82861264446976274}
   m_Layer: 8
   m_Name: BetaRadiation
-  m_TagString: Untagged
+  m_TagString: Beta
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9a493f18fa3790459101a351f43f108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fxPlayer: {fileID: 0}
   mOscillationMax: 0.35
   mType: 0
   mOscillationPerFrame: 0.015
