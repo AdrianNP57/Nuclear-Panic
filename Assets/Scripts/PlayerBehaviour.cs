@@ -10,7 +10,7 @@ public class PlayerBehaviour : MonoBehaviour
     public float mSpeedRun;
 
     private Rigidbody2D mRigidBody2D;
-    private List<Collision2D> mAllCollisions;
+    private List<Collision2D> mAllCollisions; 
 
     // V1 jump
     public float mForceJump;
@@ -45,9 +45,9 @@ public class PlayerBehaviour : MonoBehaviour
         {
             bool onGround = mAllCollisions.Exists(col => col.collider.CompareTag("Ground"));
 
-            if(onGround)
+            if (onGround)
             {
-                if(!mIsFixedJump)
+                if (!mIsFixedJump)
                 {
                     //V1 : Imply physics; Depends of 
                     mRigidBody2D.AddForce(new Vector2(0, mForceJump), ForceMode2D.Impulse);
@@ -69,30 +69,30 @@ public class PlayerBehaviour : MonoBehaviour
 
         //Autogeneration Level 
         //TODO : Move it to a better place...
-        if ((gameObject.transform.position.x - 50 * mNbLvl) > 20) {
+        if ((gameObject.transform.position.x - 50 * mNbLvl) > 20)
+        {
             int indLvlToInstantiate = (int)(UnityEngine.Random.value * mLevels.Count);//chose randomly a level​
             GameObject newLvl = GameObject.Instantiate(mLevels[indLvlToInstantiate],
                                                        new Vector3(50 + mNbLvl * 50, 0, 0),
                                                        Quaternion.identity);
 
             //Delete previous levels 
-            if (mBufferLevels.Count >= 3) {
+            if (mBufferLevels.Count >= 3)
+            {
                 GameObject.Destroy(mBufferLevels[0]);
                 mBufferLevels.RemoveAt(0);
             }
-            
-			mBufferLevels.Add(newLvl);
-            
-			++mNbLvl; //increase the number of levels already 
+
+            mBufferLevels.Add(newLvl);
+
+            ++mNbLvl; //increase the number of levels already 
         }
 
 
         //Fail into the void
         if (gameObject.transform.position.y < -10.0f)
         {
-            Debug.Log("GAMEOVER");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            GameObject.Destroy(gameObject);
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().gamma = true; //Collision with gamma
         }
 
         //Press Ecs to go to main menu
