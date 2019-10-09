@@ -55,7 +55,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetButton("Jump"))
         {
             if (onGround && jumpEnabled)
             {
@@ -111,11 +111,10 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         //Press Ecs to go to main menu
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene("MainMenuScene");
         }
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

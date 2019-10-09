@@ -12,12 +12,12 @@ public class GlassBehaviour : MonoBehaviour
     public GameObject haloLight;
     Material defaultMaterial;
 
-    int check;
+    bool glassesOn;
     Camera changeColor;
     // Start is called before the first frame update
     void Start()
     {
-        check = 0;
+        glassesOn = true;
         changeColor = mainCamera.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
     }
@@ -25,34 +25,48 @@ public class GlassBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G) && (check == 0))
+        if (Input.GetButtonDown("Glasses") && !glassesOn)
         {
             Debug.Log("Glasses on");
-            check = 1;
-
-            // for line of vision thingy
-            changeColor.backgroundColor = new Color(0.0f, 0.0f, 0.0f);
-            tileMap.GetComponent<TilemapRenderer>().material = darkMaterial;
-            thugGlasses.SetActive(true);
-            haloLight.SetActive(true);
-
-            
+            glassesOn = true;
         }
-        else if (Input.GetKeyDown(KeyCode.G) && (check == 1))
+        else if (Input.GetButtonDown("Glasses") && glassesOn)
         {
             Debug.Log("Glasses off");
-            check = 0;
-            changeColor.backgroundColor = new Color(0.2f, 0.3f, 0.5f);
-            thugGlasses.SetActive(false);
-            haloLight.SetActive(false);
-            tileMap.GetComponent<TilemapRenderer>().material = defaultMaterial;
+            glassesOn = false;
         }
 
-        Material targetMaterial = check == 0 ? defaultMaterial : darkMaterial;
+        Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;
+        Color backgroundColor = glassesOn? new Color(0.0f, 0.0f, 0.0f) : new Color(0.2f, 0.3f, 0.5f);
+
+        thugGlasses.SetActive(glassesOn);
+        haloLight.SetActive(glassesOn);
+        changeColor.backgroundColor = backgroundColor;
+        tileMap.GetComponent<TilemapRenderer>().material = targetMaterial;
         foreach (GameObject level in GetComponent<PlayerBehaviour>().mBufferLevels)
         {
 
             level.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TilemapRenderer>().material = targetMaterial;
         }
+
+        if(glassesOn)
+        {
+            ShowRadiation();
+        }
+        else
+        {
+            HideRadiation();
+        }
+    }
+
+    private void ShowRadiation()
+    {
+        Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Radiation");
+    }
+
+    // Turn off the bit using an AND operation with the complement of the shifted int:
+    private void HideRadiation()
+    {
+        Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Radiation"));
     }
 }
