@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerBehaviour : MonoBehaviour
 {
     public AudioEffectPlayer fxPlayer;
+    public Animator playerAnimator;
 
     public bool mIsFixedJump;
     public float mSpeedRun;
@@ -34,9 +35,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         mRigidBody2D = GetComponent<Rigidbody2D>();
         mAllCollisions = new List<Collision2D>();
-        //mLevels = new List<GameObject>();
         mBufferLevels = new List<GameObject>();
         mNbLvl = 0;
+
+        playerAnimator.Play("Run");
     }
 
     // Update is called once per frame
@@ -44,8 +46,39 @@ public class PlayerBehaviour : MonoBehaviour
     {
         //Infinite run
         mRigidBody2D.velocity = new Vector2(mSpeedRun, mRigidBody2D.velocity.y);
+        playerAnimator.speed = mSpeedRun / 3;
 
-        // Land
+        CheckLanding();
+        Jump();        
+
+        //Autogeneration Level 
+        //TODO : Move it to a better place...
+        if ((gameObject.transform.position.x - 50 * mNbLvl) > 20)
+        {
+            int indLvlToInstantiate = (int)(UnityEngine.Random.value * mLevels.Count);//chose randomly a level​
+            GameObject newLvl = GameObject.Instantiate(mLevels[indLvlToInstantiate],
+                                                       new Vector3(50 + mNbLvl * 50, 0, 0),
+                                                       Quaternion.identity);
+
+            //Delete previous levels 
+            if (mBufferLevels.Count >= 3)
+            {
+                GameObject.Destroy(mBufferLevels[0]);
+                mBufferLevels.RemoveAt(0);
+            }
+
+            mBufferLevels.Add(newLvl);
+
+            ++mNbLvl; //increase the number of levels already 
+        }
+
+
+        CheckFallingIntoVoid();
+        CheckUIEvents();
+    }
+
+    private void CheckLanding()
+    {
         bool previouslyOnGround = onGround;
         onGround = mAllCollisions.Exists(col => col.collider.CompareTag("Ground"));
 
@@ -53,8 +86,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             fxPlayer.Play(fxPlayer.land);
         }
+    }
 
-        //Jump
+    private void Jump()
+    {
         if (Input.GetButton("Jump"))
         {
             if (onGround && jumpEnabled)
@@ -81,40 +116,30 @@ public class PlayerBehaviour : MonoBehaviour
                 }
             }
         }
+    }
 
-        //Autogeneration Level 
-        //TODO : Move it to a better place...
-        if ((gameObject.transform.position.x - 50 * mNbLvl) > 20)
-        {
-            int indLvlToInstantiate = (int)(UnityEngine.Random.value * mLevels.Count);//chose randomly a level​
-            GameObject newLvl = GameObject.Instantiate(mLevels[indLvlToInstantiate],
-                                                       new Vector3(50 + mNbLvl * 50, 0, 0),
-                                                       Quaternion.identity);
-
-            //Delete previous levels 
-            if (mBufferLevels.Count >= 3)
-            {
-                GameObject.Destroy(mBufferLevels[0]);
-                mBufferLevels.RemoveAt(0);
-            }
-
-            mBufferLevels.Add(newLvl);
-
-            ++mNbLvl; //increase the number of levels already 
-        }
-
-
-        //Fail into the void
+    private void CheckFallingIntoVoid()
+    {
         if (gameObject.transform.position.y < -10.0f)
         {
             GameObject.Find("RadiationBar").GetComponent<RadiationBar>().gamma = true; //Collision with gamma
         }
+    }
 
+    private void CheckUIEvents()
+    {
         //Press Ecs to go to main menu
         if (Input.GetButtonDown("Cancel"))
         {
             SceneManager.LoadScene("MainMenuScene");
         }
+    }
+
+    private IEnumerator PreventMultiJump()
+    {
+        jumpEnabled = false;
+        yield return new WaitForSeconds(0.1f);
+        jumpEnabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -126,12 +151,5 @@ public class PlayerBehaviour : MonoBehaviour
     {
         Collision2D colToRemove = mAllCollisions.Find(c => c.gameObject.Equals(collision.gameObject));
         mAllCollisions.Remove(colToRemove);
-    }
-
-    private IEnumerator PreventMultiJump()
-    {
-        jumpEnabled = false;
-        yield return new WaitForSeconds(0.1f);
-        jumpEnabled = true;
     }
 }

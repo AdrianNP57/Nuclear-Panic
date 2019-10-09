@@ -5,12 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class GlassBehaviour : MonoBehaviour
 {
-    public GameObject thugGlasses;
     public GameObject tileMap;
     public Material darkMaterial;
-    public Camera mainCamera;
     public GameObject haloLight;
-    private GameObject backgroundsPrefab;
+
+    public SpriteRenderer glassesRenderer;
+    public Sprite glassesOnSprite;
+    public Sprite glassesOffSprite;
+
     Material defaultMaterial;
 
     bool glassesOn;
@@ -19,10 +21,8 @@ public class GlassBehaviour : MonoBehaviour
     void Start()
     {
         glassesOn = true;
-        changeColor = mainCamera.GetComponent<Camera>();
+        changeColor = Camera.main.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
-        backgroundsPrefab = GameObject.Find("Background");
-        backgroundsPrefab.SetActive(false);         // this is only here because as of right now when we start the level the glasses are on automatically
     }
 
     // Update is called once per frame
@@ -33,19 +33,17 @@ public class GlassBehaviour : MonoBehaviour
         {
             Debug.Log("Glasses on");
             glassesOn = true;
-            backgroundsPrefab.SetActive(false);
         }
         else if (Input.GetButtonDown("Glasses") && glassesOn)
         {
             Debug.Log("Glasses off");
             glassesOn = false;
-            backgroundsPrefab.SetActive(true);
         }
 
         Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;
         Color backgroundColor = glassesOn? new Color(0.0f, 0.0f, 0.0f) : new Color(0.2f, 0.3f, 0.5f);
 
-        thugGlasses.SetActive(glassesOn);
+        glassesRenderer.sprite = glassesOn ? glassesOnSprite : glassesOffSprite;
         haloLight.SetActive(glassesOn);
         changeColor.backgroundColor = backgroundColor;
         tileMap.GetComponent<TilemapRenderer>().material = targetMaterial;
