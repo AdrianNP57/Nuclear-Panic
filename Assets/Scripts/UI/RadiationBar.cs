@@ -8,7 +8,7 @@ public class RadiationBar : MonoBehaviour
 {
     private RadiationEffect radiationEffect;
     private Image barImage;
-    public bool gamma, alpha, beta = false; //set true if collision happened
+    public bool gamma, alpha, beta, alphaOut, betaOut = false; //set true if collision happened
 
     private void Awake()
     {
@@ -21,22 +21,42 @@ public class RadiationBar : MonoBehaviour
         radiationEffect.Update();
         barImage.fillAmount = radiationEffect.GetRadiation();
 
+        if (radiationEffect.GetRadiation() >= 1) //Player has obained enough damage to die (bar is filled)
+        {
+            Debug.Log("GAMEOVER");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameObject.Destroy(GameObject.Find("Player"));
+        }
+
+        checkCollision();   
+    }
+
+    private void checkCollision() //detects collision
+    {
         if (gamma) //gamma collision
         {
-            gamma = false;
             radiationEffect.SetRadiationTick(100f);
+            //Cannot exit gamma, since you die.
         }
 
         if (alpha) //alpha collision
         {
-            alpha = false;
-            radiationEffect.SetRadiationTick(8f);
+            radiationEffect.SetRadiationTick(0.6f);
+            if (alphaOut) //alpha collision exit
+            {
+                alpha = false;
+                alphaOut = false;
+            }
         }
 
         if (beta) //beta collision
         {
-            beta = false;
-            radiationEffect.SetRadiationTick(2f);
+            radiationEffect.SetRadiationTick(0.2f);
+            if (betaOut) //beta collision exit
+            {
+                beta = false;
+                betaOut = false;
+            }
         }
     }
 }
@@ -55,13 +75,11 @@ public class RadiationEffect    //Class for radiation logic
 
     public void Update()
     {
-        radiationAmount += radiationTick * Time.deltaTime; //Update total radiation amount
-
-        if(radiationAmount >= 100) //Player has obained enough damage to die
+        if (GameObject.Find("RadiationBar").GetComponent<RadiationBar>().alpha ||
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().beta ||
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().gamma) //Checks if player is still in radiation or not 
         {
-            Debug.Log("GAMEOVER");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            GameObject.Destroy(GameObject.Find("Player"));
+            radiationAmount += radiationTick * Time.deltaTime; //Update total radiation amount
         }
     }
 
