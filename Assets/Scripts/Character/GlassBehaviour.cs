@@ -8,6 +8,7 @@ public class GlassBehaviour : MonoBehaviour
     public GameObject tileMap;
     public Material darkMaterial;
     public GameObject haloLight;
+    private GameObject backgroundPrefab;
 
     public SpriteRenderer glassesRenderer;
     public Sprite glassesOnSprite;
@@ -23,6 +24,8 @@ public class GlassBehaviour : MonoBehaviour
         glassesOn = true;
         changeColor = Camera.main.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
+        backgroundPrefab = GameObject.Find("Background");
+        backgroundPrefab.SetActive(false);
     }
 
     // Update is called once per frame
@@ -33,11 +36,13 @@ public class GlassBehaviour : MonoBehaviour
         {
             Debug.Log("Glasses on");
             glassesOn = true;
+            backgroundPrefab.SetActive(false);
         }
         else if (Input.GetButtonDown("Glasses") && glassesOn)
         {
             Debug.Log("Glasses off");
             glassesOn = false;
+            backgroundPrefab.SetActive(true);
         }
 
         Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;
