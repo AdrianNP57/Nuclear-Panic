@@ -187,6 +187,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6423213535508559592, guid: 5518d8b8d1746cb40b534004ffd64a86,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 6423213535976137280, guid: 5518d8b8d1746cb40b534004ffd64a86,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 6423213535561596018, guid: 5518d8b8d1746cb40b534004ffd64a86,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420028}
+    - target: {fileID: 6423213536300573013, guid: 5518d8b8d1746cb40b534004ffd64a86,
+        type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 519420028}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5518d8b8d1746cb40b534004ffd64a86, type: 3}
 --- !u!4 &223044790 stripped
@@ -250,7 +270,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_Sprite: {fileID: -669299962240809519, guid: e3df4c821780cd149b4bfff5365cee46,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -381,7 +401,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 7
   m_Sprite: {fileID: 21300000, guid: 41adf809c23827d4c8e6951a713f361b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -498,24 +518,6 @@ Transform:
   m_Father: {fileID: 812541698}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &445951995 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7505907212791943306, guid: ea75219952079cb429c6694f06029d60,
-    type: 3}
-  m_PrefabInstance: {fileID: 4968552356263333107}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &445951996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 445951995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f73b2164435d10242be4b22de59b3994, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &512670711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,7 +1398,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
