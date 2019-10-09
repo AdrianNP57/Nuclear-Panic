@@ -25,7 +25,7 @@ public class GlassBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G) && (check == 0))
+        if (Input.GetButtonDown("Glasses") && (check == 0))
         {
             Debug.Log("Glasses on");
             check = 1;
@@ -38,7 +38,7 @@ public class GlassBehaviour : MonoBehaviour
 
             
         }
-        else if (Input.GetKeyDown(KeyCode.G) && (check == 1))
+        else if (Input.GetButtonDown("Glasses") && (check == 1))
         {
             Debug.Log("Glasses off");
             check = 0;
