@@ -10,6 +10,7 @@ public class GlassBehaviour : MonoBehaviour
     public Material darkMaterial;
     public Camera mainCamera;
     public GameObject haloLight;
+    private GameObject backgroundsPrefab;
     Material defaultMaterial;
 
     bool glassesOn;
@@ -20,20 +21,25 @@ public class GlassBehaviour : MonoBehaviour
         glassesOn = true;
         changeColor = mainCamera.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
+        backgroundsPrefab = GameObject.Find("Background");
+        backgroundsPrefab.SetActive(false);         // this is only here because as of right now when we start the level the glasses are on automatically
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetButtonDown("Glasses") && !glassesOn)
         {
             Debug.Log("Glasses on");
             glassesOn = true;
+            backgroundsPrefab.SetActive(false);
         }
         else if (Input.GetButtonDown("Glasses") && glassesOn)
         {
             Debug.Log("Glasses off");
             glassesOn = false;
+            backgroundsPrefab.SetActive(true);
         }
 
         Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;
