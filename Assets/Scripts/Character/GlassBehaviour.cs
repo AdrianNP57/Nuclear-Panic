@@ -5,11 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class GlassBehaviour : MonoBehaviour
 {
-    public GameObject thugGlasses;
     public GameObject tileMap;
     public Material darkMaterial;
-    public Camera mainCamera;
     public GameObject haloLight;
+
+    public SpriteRenderer glassesRenderer;
+    public Sprite glassesOnSprite;
+    public Sprite glassesOffSprite;
+
     Material defaultMaterial;
 
     bool glassesOn;
@@ -18,7 +21,7 @@ public class GlassBehaviour : MonoBehaviour
     void Start()
     {
         glassesOn = true;
-        changeColor = mainCamera.GetComponent<Camera>();
+        changeColor = Camera.main.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
     }
 
@@ -39,7 +42,7 @@ public class GlassBehaviour : MonoBehaviour
         Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;
         Color backgroundColor = glassesOn? new Color(0.0f, 0.0f, 0.0f) : new Color(0.2f, 0.3f, 0.5f);
 
-        thugGlasses.SetActive(glassesOn);
+        glassesRenderer.sprite = glassesOn ? glassesOnSprite : glassesOffSprite;
         haloLight.SetActive(glassesOn);
         changeColor.backgroundColor = backgroundColor;
         tileMap.GetComponent<TilemapRenderer>().material = targetMaterial;
