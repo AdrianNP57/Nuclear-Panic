@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 431860995510788264}
   - component: {fileID: 431860995510788267}
   m_Layer: 0
-  m_Name: HandSprite
+  m_Name: Weapon-Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 431860995597723479}
   - component: {fileID: 431860995597723478}
   m_Layer: 0
-  m_Name: BackgroundHand
+  m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 431860995699440752}
   - component: {fileID: 431860995699440753}
   m_Layer: 0
-  m_Name: Model
+  m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ GameObject:
   - component: {fileID: 431860995787964943}
   - component: {fileID: 431860995787964942}
   m_Layer: 0
-  m_Name: Body
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -514,7 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860996467219442}
   m_Layer: 0
-  m_Name: Hand
+  m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
