@@ -10,6 +10,7 @@ public class GlassBehaviour : MonoBehaviour
     public GameObject haloLight;
     private GameObject backgroundPrefab;
 
+    public GameObject levelPool;
     public SpriteRenderer glassesRenderer;
     public Sprite glassesOnSprite;
     public Sprite glassesOffSprite;
@@ -52,7 +53,7 @@ public class GlassBehaviour : MonoBehaviour
         haloLight.SetActive(glassesOn);
         changeColor.backgroundColor = backgroundColor;
         tileMap.GetComponent<TilemapRenderer>().material = targetMaterial;
-        foreach (GameObject level in GetComponent<PlayerBehaviour>().mBufferLevels)
+        foreach (GameObject level in levelPool.GetComponent<LevelPoolManager>().levels)
         {
 
             level.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TilemapRenderer>().material = targetMaterial;

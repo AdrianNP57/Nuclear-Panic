@@ -166,7 +166,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebfe0e4506b440f4fa10b4ee79868546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fxPlayer: {fileID: 0}
   playerAnimator: {fileID: 431860995699440753}
   mIsFixedJump: 1
   mSpeedRun: 5
@@ -174,9 +173,7 @@ MonoBehaviour:
   mJumpLength: 3
   mJumpHeight: 2.5
   mLevels:
-  - {fileID: 3336256823501691655, guid: 71f38312adbea9f459a2c7fa64a49bc6, type: 3}
-  - {fileID: 3295224187904532462, guid: d784975ac54924d43ab981e2f00e4fb0, type: 3}
-  - {fileID: 992885473098774852, guid: 59033e5b9cebee446b703d8b3ed338c6, type: 3}
+  - {fileID: 3584919194366339524, guid: 7b525aee7c608f7488c9747558d61a76, type: 3}
   mBufferLevels: []
 --- !u!114 &4105179104802773154
 MonoBehaviour:
@@ -193,6 +190,7 @@ MonoBehaviour:
   tileMap: {fileID: 0}
   darkMaterial: {fileID: 2100000, guid: 54c61594ffb0a8e41a2df031a0f31270, type: 2}
   haloLight: {fileID: 972413356160980929}
+  levelPool: {fileID: 0}
   glassesRenderer: {fileID: 431860995637977506}
   glassesOnSprite: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
   glassesOffSprite: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
@@ -801,7 +799,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972413356160980929}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
   m_LocalScale: {x: 1.4994, y: 1.4994, z: 1.4994}
   m_Children: []
   m_Father: {fileID: 431860995537063810}
