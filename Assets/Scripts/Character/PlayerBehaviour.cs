@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    public AudioEffectPlayer fxPlayer;
     public Animator playerAnimator;
 
     public bool mIsFixedJump;
@@ -30,6 +29,8 @@ public class PlayerBehaviour : MonoBehaviour
     private bool onGround = true;
     private bool jumpEnabled = true;
 
+    private AudioEffectPlayer fxPlayer;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,6 +38,8 @@ public class PlayerBehaviour : MonoBehaviour
         mAllCollisions = new List<Collision2D>();
         mBufferLevels = new List<GameObject>();
         mNbLvl = 0;
+
+        fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
 
         playerAnimator.Play("Run");
     }
@@ -106,9 +109,7 @@ public class PlayerBehaviour : MonoBehaviour
                 {
                     //V2 : Fix lenght of jump
                     float airTime = mJumpLength / mSpeedRun;
-                    Debug.Log(airTime);
                     float gravity = (float)(mJumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
-                    Debug.Log(gravity);
                     float verticalVelcocity = (float)Math.Sqrt(2.0f * gravity * mJumpHeight);
 
                     mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;

@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class RadiationBehaviour : MonoBehaviour
 {
-    public AudioEffectPlayer fxPlayer;
-
     public float mOscillationMax;
     public int mType; //1 = alpha, 2 = beta, 3 = gamma
     public float mOscillationPerFrame;
+
+    private AudioEffectPlayer fxPlayer;
     private float mOriginalScaleX;
     private bool mJustSwichValue = false;
     
     // Start
     void Start()
     {
+        fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
         mOriginalScaleX = gameObject.transform.localScale.x;
     }
 
