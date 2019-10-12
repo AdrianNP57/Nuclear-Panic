@@ -11,15 +11,6 @@ public class LoadingScreenBehaviour : MonoBehaviour
         StartCoroutine(LoadYourAsyncScene());
     }
 
-    void Update()
-    {
-        // Press the space key to start coroutine
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // Use a coroutine to load the Scene in the background
-        }
-    }
-
     IEnumerator LoadYourAsyncScene()
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("MainScene");

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class RadiationBar : MonoBehaviour
 {
+    public GameObject gameOverPanel;
+
     private RadiationEffect radiationEffect;
     private Image barImage;
     public bool gamma, alpha, beta, alphaOut, betaOut = false; //set true if collision happened
@@ -23,9 +25,13 @@ public class RadiationBar : MonoBehaviour
 
         if (radiationEffect.GetRadiation() >= 1) //Player has obained enough damage to die (bar is filled)
         {
-            Debug.Log("GAMEOVER");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            GameObject.Destroy(GameObject.Find("Player"));
+            GameObject.FindGameObjectWithTag("Player")?.SetActive(false);
+            gameOverPanel.SetActive(true);
+
+            if(Input.GetButtonDown("Jump"))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
 
         checkCollision();   
