@@ -98,7 +98,7 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (gameObject.transform.position.y < -10.0f)
         {
-            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().gamma = true; //Collision with gamma
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation = true; //Collision with gamma
         }
     }
 

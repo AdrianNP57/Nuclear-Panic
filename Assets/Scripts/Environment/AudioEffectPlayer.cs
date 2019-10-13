@@ -6,8 +6,8 @@ public class AudioEffectPlayer : MonoBehaviour
 {
     public AudioClip jump;
     public AudioClip land;
+    public AudioClip radiationLow;
     public AudioClip radiationMedium;
-    public AudioClip radiationFast;
 
     public AudioSource fxSource;
 

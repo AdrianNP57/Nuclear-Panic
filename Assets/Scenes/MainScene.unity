@@ -899,8 +899,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jump: {fileID: 8300000, guid: 7e7a2ff0371f517459f7c0948a9d05ba, type: 3}
   land: {fileID: 8300000, guid: 94ebda5c85a63b4459c5ae1e55c57cc4, type: 3}
-  radiationMedium: {fileID: 8300000, guid: 41d708f4d0917674a87f99cc50f1e540, type: 3}
-  radiationFast: {fileID: 8300000, guid: cada0fa2dd1aeed4ebfede990f7ecde3, type: 3}
+  radiationLow: {fileID: 8300000, guid: 41d708f4d0917674a87f99cc50f1e540, type: 3}
+  radiationMedium: {fileID: 8300000, guid: cada0fa2dd1aeed4ebfede990f7ecde3, type: 3}
   fxSource: {fileID: 519420036}
 --- !u!82 &519420036
 AudioSource:
@@ -1268,11 +1268,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverPanel: {fileID: 1730152568}
-  gamma: 0
-  alpha: 0
-  beta: 0
-  alphaOut: 0
-  betaOut: 0
+  lethalRadiation: 0
+  lowRadiation: 0
+  mediumRadiation: 0
+  lowRadiationOut: 0
+  mediumRadiationOut: 0
 --- !u!1 &1496885007
 GameObject:
   m_ObjectHideFlags: 0
@@ -11061,7 +11061,7 @@ PrefabInstance:
     - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
         type: 3}
       propertyPath: m_Name
-      value: BetaRadiation
+      value: MediumRadiation
       objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f49d83e8b002a8f419139901f6992691,
         type: 3}
@@ -11118,11 +11118,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 82861264446976274, guid: f49d83e8b002a8f419139901f6992691,
-        type: 3}
-      propertyPath: fxPlayer
-      value: 
-      objectReference: {fileID: 519420035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49d83e8b002a8f419139901f6992691, type: 3}
 --- !u!4 &638076220265677878 stripped
@@ -11147,7 +11142,7 @@ PrefabInstance:
     - target: {fileID: 7505907212791943306, guid: ea75219952079cb429c6694f06029d60,
         type: 3}
       propertyPath: m_Name
-      value: GammaChaser
+      value: LethalRadiationChaser
       objectReference: {fileID: 0}
     - target: {fileID: 7505907212791943305, guid: ea75219952079cb429c6694f06029d60,
         type: 3}
@@ -11216,7 +11211,7 @@ PrefabInstance:
     - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_Name
-      value: AlphaRadiation
+      value: LowRadiation
       objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
@@ -11273,11 +11268,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6358412776515956754, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: fxPlayer
-      value: 
-      objectReference: {fileID: 519420035}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &8417703943755749990 stripped

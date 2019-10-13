@@ -10,7 +10,7 @@ public class RadiationBar : MonoBehaviour
 
     private RadiationEffect radiationEffect;
     private Image barImage;
-    public bool gamma, alpha, beta, alphaOut, betaOut = false; //set true if collision happened
+    public bool lethalRadiation, lowRadiation, mediumRadiation, lowRadiationOut, mediumRadiationOut = false; //set true if collision happened
 
     private void Awake()
     {
@@ -39,29 +39,29 @@ public class RadiationBar : MonoBehaviour
 
     private void checkCollision() //detects collision
     {
-        if (gamma) //gamma collision
+        if (lethalRadiation) //lethal collision
         {
             radiationEffect.SetRadiationTick(100f);
-            //Cannot exit gamma, since you die.
+            //Cannot exit lethal, since you die.
         }
 
-        if (alpha) //alpha collision
+        if (lowRadiation) //low collision
         {
             radiationEffect.SetRadiationTick(0.6f);
-            if (alphaOut) //alpha collision exit
+            if (lowRadiationOut) //low collision exit
             {
-                alpha = false;
-                alphaOut = false;
+                lowRadiation = false;
+                lowRadiationOut = false;
             }
         }
 
-        if (beta) //beta collision
+        if (mediumRadiation) //medium collision
         {
             radiationEffect.SetRadiationTick(0.2f);
-            if (betaOut) //beta collision exit
+            if (mediumRadiationOut) //medium collision exit
             {
-                beta = false;
-                betaOut = false;
+                mediumRadiation = false;
+                mediumRadiationOut = false;
             }
         }
     }
@@ -81,9 +81,9 @@ public class RadiationEffect    //Class for radiation logic
 
     public void Update()
     {
-        if (GameObject.Find("RadiationBar").GetComponent<RadiationBar>().alpha ||
-            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().beta ||
-            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().gamma) //Checks if player is still in radiation or not 
+        if (GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lowRadiation ||
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().mediumRadiation ||
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation) //Checks if player is still in radiation or not 
         {
             radiationAmount += radiationTick * Time.deltaTime; //Update total radiation amount
         }

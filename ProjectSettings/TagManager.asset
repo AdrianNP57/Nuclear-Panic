@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
-  - Beta
-  - Alpha
+  - MediumRadiation
+  - LowRadiation
   layers:
   - Default
   - TransparentFX

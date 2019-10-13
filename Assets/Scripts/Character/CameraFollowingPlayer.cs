@@ -33,7 +33,7 @@ public class CameraFollowingPlayer : MonoBehaviour {
 
                 if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 0)
                 {
-                    GameObject.Find("RadiationBar").GetComponent<RadiationBar>().gamma = true; //Collision with gamma
+                    GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation = true; //Collision with gamma
                     //Debug.Log("GAME OVER");
                     //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }

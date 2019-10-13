@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8938334445369249038}
   - component: {fileID: 6358412776515956754}
   m_Layer: 8
-  m_Name: AlphaRadiation
-  m_TagString: Alpha
+  m_Name: LowRadiation
+  m_TagString: LowRadiation
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 8938334446911014860}
   - component: {fileID: 8938334446911014863}
   m_Layer: 8
-  m_Name: AlphaRadiationParticles
+  m_Name: LowRadiationParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1377,8 +1377,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.9019608, g: 0.31764707, b: 0, a: 0.47058824}
-        key1: {r: 1, g: 0.5411765, b: 0.39607844, a: 0.47058824}
+        key0: {r: 0.2901961, g: 0.078431375, b: 0.54901963, a: 0.47058824}
+        key1: {r: 0.88235295, g: 0.74509805, b: 0.90588236, a: 0.47058824}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}

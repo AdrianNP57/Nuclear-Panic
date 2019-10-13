@@ -5,7 +5,6 @@ using UnityEngine;
 public class RadiationBehaviour : MonoBehaviour
 {
     public float mOscillationMax;
-    public int mType; //1 = alpha, 2 = beta, 3 = gamma
     public float mOscillationPerFrame;
 
     private AudioEffectPlayer fxPlayer;
@@ -42,13 +41,13 @@ public class RadiationBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(tag == "Alpha")
+            if(tag == "LowRadiation")
+            {
+                fxPlayer.Play(fxPlayer.radiationLow);
+            }
+            else if(tag == "MediumRadiation")
             {
                 fxPlayer.Play(fxPlayer.radiationMedium);
-            }
-            else if(tag == "Beta")
-            {
-                fxPlayer.Play(fxPlayer.radiationFast);
             }
         }
     }
