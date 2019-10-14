@@ -29,6 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool onExtraTimeToJump = false;
     private bool jumpEnabled = true;
     private bool inJump = false;
+    private bool isDead = false;
     public float extraTimeToJump;
 
     public float initialSpeedRun;
@@ -63,13 +64,30 @@ public class PlayerBehaviour : MonoBehaviour
         onExtraTimeToJump = false;
         jumpEnabled = true;
         inJump = false;
+        isDead = false;
 
         playerAnimator.Play("Run");
+    }
+
+    public void Die()
+    {
+        if (isDead)
+        {
+            return;
+        }
+        isDead = true;
+        playerAnimator.Play("Die");
+        mRigidBody2D.velocity = Vector2.zero;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         InfiniteRun();
         CheckLanding();
         Jump();
@@ -111,6 +129,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             fxPlayer.Play(fxPlayer.land);
             inJump = false;
+            playerAnimator.Play("Run");
         }
 
         if(!onGround && previouslyOnGround)
@@ -145,6 +164,7 @@ public class PlayerBehaviour : MonoBehaviour
                     mRigidBody2D.velocity = new Vector2(mRigidBody2D.velocity.x, verticalVelcocity);
                 }
                 inJump = true;
+                playerAnimator.Play("Jump");
             }
         }
     }

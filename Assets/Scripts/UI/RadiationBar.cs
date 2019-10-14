@@ -97,7 +97,11 @@ public class RadiationBar : MonoBehaviour
 
     private void ChangeGameState(bool activeGame)
     {
-        player.SetActive(activeGame);
+        //player.SetActive(activeGame);
+        if (!activeGame)
+        {
+            player.GetComponent<PlayerBehaviour>().Die();
+        }
         gameOverPanel.SetActive(!activeGame);
     }
 }
