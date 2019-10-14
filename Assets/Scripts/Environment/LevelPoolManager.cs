@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LevelPoolManager : MonoBehaviour
 {
+    [HideInInspector]
     public List<GameObject> levels;
     private GameObject player;
 
@@ -32,7 +33,7 @@ public class LevelPoolManager : MonoBehaviour
     {
         if ((player.transform.position.x - 50 * levelsGenerated) > 20)
         {
-            int newLevelIndex = (int) UnityEngine.Random.value * levels.Count;
+            int newLevelIndex = (int) (UnityEngine.Random.value * levels.Count);
             newLevelIndex = newLevelIndex == previousLevelIndex ? newLevelIndex + 1 : newLevelIndex;
             newLevelIndex %= levels.Count;
 
