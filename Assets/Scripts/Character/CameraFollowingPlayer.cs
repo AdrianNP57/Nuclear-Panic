@@ -9,10 +9,18 @@ public class CameraFollowingPlayer : MonoBehaviour {
     public float mXOffset;
     public float mYOffset;
 
+    private Vector3 initialPosition;
+
     void Start() {
-        //gameObject.transform.Translate(new Vector3(mPlayer.transform.position.x - unitsXOffset, mYOffset, 0));
         float unitsXOffset = Camera.main.ScreenToWorldPoint(new Vector3(mXOffset, 0, 0)).x;
-        gameObject.transform.position = new Vector3(mPlayer.transform.position.x - unitsXOffset, mYOffset, -10);
+        initialPosition = new Vector3(mPlayer.transform.position.x - unitsXOffset, mYOffset, -10);
+
+        Init();
+    }
+
+    public void Init()
+    {
+        gameObject.transform.position = initialPosition;
     }
 
     void Update() {

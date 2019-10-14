@@ -10,12 +10,23 @@ public class RadiationBar : MonoBehaviour
 
     private RadiationEffect radiationEffect;
     private Image barImage;
-    public bool lethalRadiation, lowRadiation, mediumRadiation, lowRadiationOut, mediumRadiationOut = false; //set true if collision happened
+    public bool lethalRadiation, lowRadiation, mediumRadiation, lowRadiationOut, mediumRadiationOut; //set true if collision happened
+
+    public GameObject player;
+    public GameObject background;
+    public AudioSource musicSource;
 
     private void Awake()
     {
         barImage = transform.Find("Bar").GetComponent<Image>();
         radiationEffect = new RadiationEffect();
+
+        Init();
+    }
+
+    private void Init()
+    {
+        lethalRadiation = lowRadiation = mediumRadiation = lowRadiationOut = mediumRadiationOut = false;
     }
 
     private void Update()
@@ -25,12 +36,11 @@ public class RadiationBar : MonoBehaviour
 
         if (radiationEffect.GetRadiation() >= 1) //Player has obained enough damage to die (bar is filled)
         {
-            GameObject.FindGameObjectWithTag("Player")?.SetActive(false);
-            gameOverPanel.SetActive(true);
+            ChangeGameState(false);
 
             if(Input.GetButtonDown("Jump"))
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                RestartScene();
             }
         }
 
@@ -65,6 +75,31 @@ public class RadiationBar : MonoBehaviour
             }
         }
     }
+
+    private void RestartScene()
+    {
+        ChangeGameState(true);
+        Init();
+
+        player.GetComponent<PlayerBehaviour>().Init();
+        GameObject.Find("LevelPool").GetComponent<LevelPoolManager>().ReInit();
+        Camera.main.GetComponent<CameraFollowingPlayer>().Init();
+        radiationEffect.Init();
+
+        foreach(Transform parallaxItem in background.transform)
+        {
+            parallaxItem.gameObject.GetComponent<ParallaxEffect>().Init();
+        }
+
+        musicSource.Stop();
+        musicSource.Play();
+    }
+
+    private void ChangeGameState(bool activeGame)
+    {
+        player.SetActive(activeGame);
+        gameOverPanel.SetActive(!activeGame);
+    }
 }
 
 
@@ -74,6 +109,11 @@ public class RadiationEffect    //Class for radiation logic
     private float radiationAmount, radiationTick; //Total amount of radiation (0-100)% & radiation taken per tick (0-100)%
 
     public RadiationEffect() //Constructor (Starting values)
+    {
+        Init();
+    }
+
+    public void Init()
     {
         radiationAmount = 0f;
         radiationTick = 0f;

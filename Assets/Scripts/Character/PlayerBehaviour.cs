@@ -32,8 +32,11 @@ public class PlayerBehaviour : MonoBehaviour
     public float initialSpeedRun;
     public float maxSpeedRun;
     public float speedRunAccelaration;
+
     [HideInInspector]
     public float currentSpeedRun;
+    [HideInInspector]
+    public Vector3 initialPosition;
 
     private AudioEffectPlayer fxPlayer;
 
@@ -43,9 +46,16 @@ public class PlayerBehaviour : MonoBehaviour
         mRigidBody2D = GetComponent<Rigidbody2D>();
         mAllCollisions = new List<Collision2D>();
         mBufferLevels = new List<GameObject>();
-        currentSpeedRun = initialSpeedRun;
-
+        initialPosition = transform.position;
         fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
+
+        Init();
+    }
+
+    public void Init()
+    {
+        currentSpeedRun = initialSpeedRun;
+        transform.position = initialPosition;
 
         playerAnimator.Play("Run");
     }

@@ -24,8 +24,23 @@ public class LevelPoolManager : MonoBehaviour
         transform.DetachChildren();
         player = GameObject.FindGameObjectWithTag("Player");
 
+        Init();
+    }
+
+    private void Init()
+    {
         levelsGenerated = 0;
         previousLevelIndex = -1;
+    }
+
+    public void ReInit()
+    {
+        foreach(GameObject level in levels)
+        {
+            level.transform.localPosition = new Vector3(0, -1000, 0);
+        }
+
+        Init();
     }
 
     // Update is called once per frame

@@ -14,7 +14,7 @@ public class AudioEffectPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //source = GetComponent<AudioSource>(); 
+
     }
 
     public void Play(AudioClip clip)
