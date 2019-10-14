@@ -99,6 +99,12 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Jump()
     {
+        float airTime = mJumpLength / currentSpeedRun;
+        float gravity = (float)(mJumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
+        float verticalVelcocity = (float)Math.Sqrt(2.0f * gravity * mJumpHeight);
+
+        mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;
+
         if (Input.GetButton("Jump"))
         {
             if (onGround && jumpEnabled)
@@ -114,11 +120,6 @@ public class PlayerBehaviour : MonoBehaviour
                 else
                 {
                     //V2 : Fix lenght of jump
-                    float airTime = mJumpLength / currentSpeedRun;
-                    float gravity = (float)(mJumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
-                    float verticalVelcocity = (float)Math.Sqrt(2.0f * gravity * mJumpHeight);
-
-                    mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;
                     mRigidBody2D.velocity = new Vector2(mRigidBody2D.velocity.x, verticalVelcocity);
                 }
                 inJump = true;
