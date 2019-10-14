@@ -10,6 +10,11 @@ public class Score : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = player.position.x.ToString("0"); //sets scoreText to an integer depending on the x position of the player
+        scoreText.text = CurrentScore().ToString("0"); //sets scoreText to an integer depending on the x position of the player
+    }
+
+    public int CurrentScore()
+    {
+        return (int) player.position.x;
     }
 }

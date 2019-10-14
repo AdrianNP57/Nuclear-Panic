@@ -26,8 +26,10 @@ public class PlayerBehaviour : MonoBehaviour
     public List<GameObject> mBufferLevels;
 
     private bool onGround = true;
+    private bool onExtraTimeToJump = false;
     private bool jumpEnabled = true;
     private bool inJump = false;
+    public float extraTimeToJump;
 
     public float initialSpeedRun;
     public float maxSpeedRun;
@@ -56,6 +58,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         currentSpeedRun = initialSpeedRun;
         transform.position = initialPosition;
+
+        onGround = true;
+        onExtraTimeToJump = false;
+        jumpEnabled = true;
+        inJump = false;
 
         playerAnimator.Play("Run");
     }
@@ -105,6 +112,11 @@ public class PlayerBehaviour : MonoBehaviour
             fxPlayer.Play(fxPlayer.land);
             inJump = false;
         }
+
+        if(!onGround && previouslyOnGround)
+        {
+            StartCoroutine(AllowExtraTimeJump());
+        }
     }
 
     private void Jump()
@@ -117,7 +129,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (Input.GetButton("Jump"))
         {
-            if (onGround && jumpEnabled)
+            if ((onGround || onExtraTimeToJump) && jumpEnabled)
             {
                 fxPlayer.Play(fxPlayer.jump);
                 StartCoroutine(PreventMultiJump());
@@ -157,8 +169,15 @@ public class PlayerBehaviour : MonoBehaviour
     private IEnumerator PreventMultiJump()
     {
         jumpEnabled = false;
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(extraTimeToJump + 0.05f);
         jumpEnabled = true;
+    }
+
+    private IEnumerator AllowExtraTimeJump()
+    {
+        onExtraTimeToJump = true;
+        yield return new WaitForSeconds(extraTimeToJump);
+        onExtraTimeToJump = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
