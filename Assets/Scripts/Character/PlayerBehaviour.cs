@@ -9,6 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Animator playerAnimator;
 
     public bool mIsFixedJump;
+    public bool mIncreasedRampSpeed;
     public float mSpeedRun;
 
     private Rigidbody2D mRigidBody2D;
@@ -55,12 +56,21 @@ public class PlayerBehaviour : MonoBehaviour
         CheckFallingIntoVoid();
         CheckUIEvents();
 
-        if (mRigidBody2D.velocity.y > 0 && !onGround && !inJump)
+        if (mRigidBody2D.velocity.y > 0.01f && !inJump)
         {
-            Vector2 vel = mRigidBody2D.velocity;
-            vel.y = 0;
-            mRigidBody2D.velocity = vel;
+            if (!onGround)
+            {
+                Vector2 vel = mRigidBody2D.velocity;
+                vel.y = 0;
+                mRigidBody2D.velocity = vel;
+            }
+            else if (mIncreasedRampSpeed)
+            {
+                mRigidBody2D.velocity = new Vector2(mSpeedRun * 1.175f, mRigidBody2D.velocity.y);
+            }
+
         }
+        Debug.Log("X-velocity: " + mRigidBody2D.velocity.x);
     }
 
     private void CheckLanding()
