@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class RadiationBar : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class RadiationBar : MonoBehaviour
     public GameObject player;
     public GameObject background;
     public AudioSource musicSource;
+    public TextMeshProUGUI radiationDigit;
 
     private void Awake()
     {
@@ -33,6 +36,19 @@ public class RadiationBar : MonoBehaviour
     {
         radiationEffect.Update();
         barImage.fillAmount = radiationEffect.GetRadiation();
+
+        if (radiationEffect.GetRadiation() > 1) //if -> updates digit of radiation bar
+        {
+            radiationDigit.text = String.Format("{0:0.00}", 10.00);
+        }
+        else if (radiationEffect.GetRadiation() == 0) 
+        {
+            radiationDigit.text = String.Format("{0:0.00}", 0.00);
+        }
+        else
+        {
+            radiationDigit.text = String.Format("{0:0.0#}", radiationEffect.GetRadiation() * 10f);
+        }
 
         if (radiationEffect.GetRadiation() >= 1) //Player has obained enough damage to die (bar is filled)
         {
