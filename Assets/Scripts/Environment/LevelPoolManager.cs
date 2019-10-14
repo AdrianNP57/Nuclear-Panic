@@ -48,14 +48,13 @@ public class LevelPoolManager : MonoBehaviour
     {
         if ((player.transform.position.x - 50 * levelsGenerated) > 20)
         {
-            int newLevelIndex = (int) (UnityEngine.Random.value * levels.Count);
+            // Level 13 (easy tutorial level, always goes first)
+            int newLevelIndex = levelsGenerated > 0? (int) (UnityEngine.Random.value * levels.Count) : 0;
             newLevelIndex = newLevelIndex == previousLevelIndex ? newLevelIndex + 1 : newLevelIndex;
             newLevelIndex %= levels.Count;
 
             GameObject newLevel = levels[newLevelIndex];
             newLevel.transform.localPosition = new Vector3(50 + levelsGenerated * 50, 0, 0);
-
-            // TODO disable previous levels
 
             previousLevelIndex = newLevelIndex;
             levelsGenerated++;
