@@ -29,7 +29,10 @@ public class CameraFollowingPlayer : MonoBehaviour {
                 Vector3 currentCameraPos = gameObject.transform.position;
                 var playerBehaviour = (mPlayer.GetComponent<PlayerBehaviour>() as PlayerBehaviour);
 
-                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerBehaviour.mSpeedRun, 0);
+                float cameraY = mPlayer.transform.position.y + mYOffset >= 0 ? mPlayer.transform.position.y + mYOffset : 0;
+
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, cameraY, gameObject.transform.position.z);
+                gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerBehaviour.currentSpeedRun, 0);
 
                 if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 0)
                 {

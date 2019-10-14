@@ -9,7 +9,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Animator playerAnimator;
 
     public bool mIsFixedJump;
-    public float mSpeedRun;
+    public bool mIncreasedRampSpeed;
 
     private Rigidbody2D mRigidBody2D;
     private List<Collision2D> mAllCollisions; 
@@ -27,6 +27,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     private bool onGround = true;
     private bool jumpEnabled = true;
+    private bool inJump = false;
+
+    public float initialSpeedRun;
+    public float maxSpeedRun;
+    public float speedRunAccelaration;
+    [HideInInspector]
+    public float currentSpeedRun;
 
     private AudioEffectPlayer fxPlayer;
 
@@ -36,6 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
         mRigidBody2D = GetComponent<Rigidbody2D>();
         mAllCollisions = new List<Collision2D>();
         mBufferLevels = new List<GameObject>();
+        currentSpeedRun = initialSpeedRun;
 
         fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
 
@@ -45,14 +53,36 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Infinite run
-        mRigidBody2D.velocity = new Vector2(mSpeedRun, mRigidBody2D.velocity.y);
-        playerAnimator.speed = mSpeedRun / 3;
-
+        InfiniteRun();
         CheckLanding();
         Jump();
         CheckFallingIntoVoid();
         CheckUIEvents();
+
+        if (mRigidBody2D.velocity.y > 0.01f && !inJump)
+        {
+            if (!onGround)
+            {
+                Vector2 vel = mRigidBody2D.velocity;
+                vel.y = 0;
+                mRigidBody2D.velocity = vel;
+            }
+            else if (mIncreasedRampSpeed)
+            {
+                mRigidBody2D.velocity = new Vector2(currentSpeedRun * 1.175f, mRigidBody2D.velocity.y);
+            }
+
+        }
+        Debug.Log("X-velocity: " + mRigidBody2D.velocity.x);
+    }
+
+    private void InfiniteRun()
+    {
+        mRigidBody2D.velocity = new Vector2(currentSpeedRun, mRigidBody2D.velocity.y);
+        playerAnimator.speed = currentSpeedRun / 3;
+
+        currentSpeedRun += speedRunAccelaration * Time.deltaTime;
+        currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;
     }
 
     private void CheckLanding()
@@ -63,6 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (onGround && !previouslyOnGround)
         {
             fxPlayer.Play(fxPlayer.land);
+            inJump = false;
         }
     }
 
@@ -83,13 +114,14 @@ public class PlayerBehaviour : MonoBehaviour
                 else
                 {
                     //V2 : Fix lenght of jump
-                    float airTime = mJumpLength / mSpeedRun;
+                    float airTime = mJumpLength / currentSpeedRun;
                     float gravity = (float)(mJumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
                     float verticalVelcocity = (float)Math.Sqrt(2.0f * gravity * mJumpHeight);
 
                     mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;
                     mRigidBody2D.velocity = new Vector2(mRigidBody2D.velocity.x, verticalVelcocity);
                 }
+                inJump = true;
             }
         }
     }
