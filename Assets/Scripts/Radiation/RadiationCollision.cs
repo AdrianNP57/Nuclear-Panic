@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RadiationCollision : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D coll) 
+    private void OnTriggerStay2D(Collider2D coll) 
     {
         if(coll.gameObject.tag == "LowRadiation") //Low Collision
         {
