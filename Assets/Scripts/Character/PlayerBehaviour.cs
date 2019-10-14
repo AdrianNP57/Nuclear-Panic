@@ -27,6 +27,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private bool onGround = true;
     private bool jumpEnabled = true;
+    private bool inJump = false;
 
     private AudioEffectPlayer fxPlayer;
 
@@ -53,6 +54,13 @@ public class PlayerBehaviour : MonoBehaviour
         Jump();
         CheckFallingIntoVoid();
         CheckUIEvents();
+
+        if (mRigidBody2D.velocity.y > 0 && !onGround && !inJump)
+        {
+            Vector2 vel = mRigidBody2D.velocity;
+            vel.y = 0;
+            mRigidBody2D.velocity = vel;
+        }
     }
 
     private void CheckLanding()
@@ -63,6 +71,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (onGround && !previouslyOnGround)
         {
             fxPlayer.Play(fxPlayer.land);
+            inJump = false;
         }
     }
 
@@ -90,6 +99,7 @@ public class PlayerBehaviour : MonoBehaviour
                     mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;
                     mRigidBody2D.velocity = new Vector2(mRigidBody2D.velocity.x, verticalVelcocity);
                 }
+                inJump = true;
             }
         }
     }
