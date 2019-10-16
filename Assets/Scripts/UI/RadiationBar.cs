@@ -9,6 +9,7 @@ using System;
 public class RadiationBar : MonoBehaviour
 {
     public GameObject gameOverPanel;
+    public GameObject restartText;
 
     private RadiationEffect radiationEffect;
     private Image barImage;
@@ -18,6 +19,9 @@ public class RadiationBar : MonoBehaviour
     public GameObject background;
     public AudioSource musicSource;
     public TextMeshProUGUI radiationDigit;
+
+    private bool canRestart;
+    private bool playerDead;
 
     private void Awake()
     {
@@ -54,7 +58,7 @@ public class RadiationBar : MonoBehaviour
         {
             ChangeGameState(false);
 
-            if(Input.GetButtonDown("Jump"))
+            if(Input.GetButtonDown("Jump") && canRestart)
             {
                 RestartScene();
             }
@@ -113,15 +117,27 @@ public class RadiationBar : MonoBehaviour
 
     private void ChangeGameState(bool activeGame)
     {
-        //player.SetActive(activeGame);
-        if (!activeGame)
+        if (!activeGame && !playerDead)
         {
             player.GetComponent<PlayerBehaviour>().Die();
+            StartCoroutine(PreventImmediateGameRestart());
         }
+
         gameOverPanel.SetActive(!activeGame);
+        playerDead = !activeGame;
+    }
+
+    private IEnumerator PreventImmediateGameRestart()
+    {
+        canRestart = false;
+        restartText.SetActive(false);
+
+        yield return new WaitForSeconds(2.0f);
+
+        canRestart = true;
+        restartText.SetActive(true);
     }
 }
-
 
 public class RadiationEffect    //Class for radiation logic
 {
