@@ -7,7 +7,7 @@ public class HighScoreBehaviour : MonoBehaviour
 {
     public Score scoreBehaviour;
     private TextMeshProUGUI text;
-    private static int highScore = 0;
+    private static int highScore = -1;
 
     void Awake()
     {

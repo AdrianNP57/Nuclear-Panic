@@ -93,7 +93,7 @@ public class LevelPoolManager : MonoBehaviour
         standardLevelsGenerated++;
     }
 
-    private int CurrentEndOfWorld()
+    public int CurrentEndOfWorld()
     {
         return 10 + 10 * plainLevelsGenerated + 50 * standardLevelsGenerated;
     }
