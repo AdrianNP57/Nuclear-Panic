@@ -6,10 +6,11 @@ public class LevelPoolManager : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> levels;
+    [HideInInspector]
+    public List<GameObject> plainLevels;
     public PlayerBehaviour playerBehaviour;
-    public GameObject plainLevel;
+    public GameObject plainLevelPrefab;
 
-    private List<GameObject> plainLevels;
     private int plainLevelsGenerated;
     private int standardLevelsGenerated;
     private int previousLevelIndex;
@@ -44,6 +45,11 @@ public class LevelPoolManager : MonoBehaviour
             level.transform.localPosition = new Vector3(0, -1000, 0);
         }
 
+        foreach(GameObject plainLevel in plainLevels)
+        {
+            Destroy(plainLevel);
+        }
+
         Init();
     }
 
@@ -67,7 +73,7 @@ public class LevelPoolManager : MonoBehaviour
 
     private void NotPlayingLevelGeneration()
     {
-        GameObject newLevel = Instantiate(plainLevel, new Vector3(CurrentEndOfWorld(), 0, 0), Quaternion.identity);
+        GameObject newLevel = Instantiate(plainLevelPrefab, new Vector3(CurrentEndOfWorld(), 0, 0), Quaternion.identity);
         plainLevels.Add(newLevel);
         plainLevelsGenerated++;
 

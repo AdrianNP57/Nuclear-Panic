@@ -85,11 +85,9 @@ public class GlassBehaviour : MonoBehaviour
         fourthBackgroundpartOne.GetComponent<SpriteRenderer>().material = targetMaterial1;
         fourthBackgroundpartTwo.GetComponent<SpriteRenderer>().material = targetMaterial1;
 
-        foreach (GameObject level in levelPool.GetComponent<LevelPoolManager>().levels)
-        {
-
-            level.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TilemapRenderer>().material = targetMaterial;
-        }
+        LevelPoolManager levelManager = levelPool.GetComponent<LevelPoolManager>();
+        ChangeMaterialToLevels(levelManager.levels, targetMaterial);
+        ChangeMaterialToLevels(levelManager.plainLevels, targetMaterial);
 
         if(glassesOn)
         {
@@ -110,5 +108,13 @@ public class GlassBehaviour : MonoBehaviour
     private void HideRadiation()
     {
         Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Radiation"));
+    }
+
+    private void ChangeMaterialToLevels(List<GameObject> levels, Material targetMaterial)
+    {
+        foreach (GameObject level in levels)
+        {
+            level.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TilemapRenderer>().material = targetMaterial;
+        }
     }
 }
