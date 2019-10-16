@@ -6,7 +6,6 @@ public class LevelPoolManager : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> levels;
-    private GameObject player;
 
     private int levelsGenerated;
     private int previousLevelIndex;
@@ -22,7 +21,6 @@ public class LevelPoolManager : MonoBehaviour
         }
 
         transform.DetachChildren();
-        player = GameObject.FindGameObjectWithTag("Player");
 
         Init();
     }
@@ -46,7 +44,7 @@ public class LevelPoolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((player.transform.position.x - 50 * levelsGenerated) > 20)
+        if ((Camera.main.transform.position.x - 50 * levelsGenerated) > 20)
         {
             // Level 13 (easy tutorial level, always goes first)
             int newLevelIndex = levelsGenerated > 0? (int) (UnityEngine.Random.value * levels.Count) : 0;
