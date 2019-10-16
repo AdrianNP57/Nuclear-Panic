@@ -36,7 +36,7 @@ public class GlassBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        glassesOn = true;
+        glassesOn = false;
         changeColor = Camera.main.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
         defaultMaterialBackground1 = GameObject.Find("4").GetComponent<SpriteRenderer>().material;
@@ -50,18 +50,18 @@ public class GlassBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetButtonDown("Glasses") && !glassesOn)
+        if(!GetComponent<PlayerBehaviour>().chooseDifficulty)
         {
-            Debug.Log("Glasses on");
-            glassesOn = true;
-            //backgroundPrefab.SetActive(false);
-        }
-        else if (Input.GetButtonDown("Glasses") && glassesOn)
-        {
-            Debug.Log("Glasses off");
-            glassesOn = false;
-            //backgroundPrefab.SetActive(true);
+            if (Input.GetButtonDown("Glasses") && !glassesOn)
+            {
+                Debug.Log("Glasses on");
+                glassesOn = true;
+            }
+            else if (Input.GetButtonDown("Glasses") && glassesOn)
+            {
+                Debug.Log("Glasses off");
+                glassesOn = false;
+            }
         }
 
         Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;

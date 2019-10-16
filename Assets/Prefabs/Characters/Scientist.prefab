@@ -91,8 +91,8 @@ GameObject:
   - component: {fileID: 431860995537063810}
   - component: {fileID: 431860995537063811}
   - component: {fileID: 431860995537063808}
-  - component: {fileID: 4790778782607250189}
   - component: {fileID: 4105179104802773154}
+  - component: {fileID: 4790778782607250189}
   - component: {fileID: 8009348826128182466}
   m_Layer: 0
   m_Name: Scientist
@@ -154,6 +154,35 @@ CapsuleCollider2D:
   m_Offset: {x: -0.003753662, y: 0.25996447}
   m_Size: {x: 0.32198334, y: 1.3402796}
   m_Direction: 0
+--- !u!114 &4105179104802773154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c932579ebe3603b4c8a946ff724ede27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tileMap: {fileID: 0}
+  firstBackground: {fileID: 0}
+  firstBackgroundpartOne: {fileID: 0}
+  secondBackground: {fileID: 0}
+  secondBackgroundpartOne: {fileID: 0}
+  thirdBackground: {fileID: 0}
+  thirdBackgroundpartOne: {fileID: 0}
+  thirdBackgroundpartTwo: {fileID: 0}
+  fourthBackground: {fileID: 0}
+  fourthBackgroundpartOne: {fileID: 0}
+  fourthBackgroundpartTwo: {fileID: 0}
+  darkMaterial: {fileID: 2100000, guid: 54c61594ffb0a8e41a2df031a0f31270, type: 2}
+  haloLight: {fileID: 972413356160980929}
+  levelPool: {fileID: 0}
+  glassesRenderer: {fileID: 431860995637977506}
+  glassesOnSprite: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
+  glassesOffSprite: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
 --- !u!114 &4790778782607250189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,32 +197,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnimator: {fileID: 431860995699440753}
   mIsFixedJump: 1
-  mSpeedRun: 5
+  mIncreasedRampSpeed: 0
   mForceJump: 5
   mJumpLength: 3
   mJumpHeight: 2.5
   mLevels:
   - {fileID: 3584919194366339524, guid: 7b525aee7c608f7488c9747558d61a76, type: 3}
   mBufferLevels: []
---- !u!114 &4105179104802773154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431860995537063814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c932579ebe3603b4c8a946ff724ede27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tileMap: {fileID: 0}
-  darkMaterial: {fileID: 2100000, guid: 54c61594ffb0a8e41a2df031a0f31270, type: 2}
-  haloLight: {fileID: 972413356160980929}
-  levelPool: {fileID: 0}
-  glassesRenderer: {fileID: 431860995637977506}
-  glassesOnSprite: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
-  glassesOffSprite: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
+  extraTimeToJump: 0
+  initialSpeedRun: 0
+  maxSpeedRun: 0
+  speedRunAccelaration: 0
+  difficultyPanel: {fileID: 0}
+  currentSpeedRun: 0
+  initialPosition: {x: 0, y: 0, z: 0}
+  chooseDifficulty: 0
 --- !u!114 &8009348826128182466
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -36,12 +36,19 @@ public class PlayerBehaviour : MonoBehaviour
     public float maxSpeedRun;
     public float speedRunAccelaration;
 
+    public GameObject difficultyPanel;
+
     [HideInInspector]
     public float currentSpeedRun;
     [HideInInspector]
     public Vector3 initialPosition;
 
     private AudioEffectPlayer fxPlayer;
+
+    [HideInInspector]
+    public bool chooseDifficulty;
+    private bool allowInteraction;
+    private Difficulty difficulty;
 
     // Start is called before the first frame update
     void Awake()
@@ -65,6 +72,10 @@ public class PlayerBehaviour : MonoBehaviour
         jumpEnabled = true;
         inJump = false;
         isDead = false;
+        chooseDifficulty = true;
+
+        difficultyPanel.SetActive(true);
+        StartCoroutine(PreventPrematureInteraction());
 
         playerAnimator.Play("Run");
     }
@@ -89,26 +100,59 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         InfiniteRun();
-        CheckLanding();
-        Jump();
-        CheckFallingIntoVoid();
-        CheckUIEvents();
 
-        if (mRigidBody2D.velocity.y > 0.01f && !inJump)
+        if(allowInteraction)
         {
-            if (!onGround)
+            if (!chooseDifficulty)
             {
-                Vector2 vel = mRigidBody2D.velocity;
-                vel.y = 0;
-                mRigidBody2D.velocity = vel;
-            }
-            else if (mIncreasedRampSpeed)
-            {
-                mRigidBody2D.velocity = new Vector2(currentSpeedRun * 1.175f, mRigidBody2D.velocity.y);
+                CheckLanding();
+                Jump();
+                CheckFallingIntoVoid();
+
+                // TODO move to different method
+                if (mRigidBody2D.velocity.y > 0.01f && !inJump)
+                {
+                    if (!onGround)
+                    {
+                        Vector2 vel = mRigidBody2D.velocity;
+                        vel.y = 0;
+                        mRigidBody2D.velocity = vel;
+                    }
+                    else if (mIncreasedRampSpeed)
+                    {
+                        mRigidBody2D.velocity = new Vector2(currentSpeedRun * 1.175f, mRigidBody2D.velocity.y);
+                    }
+
+                }
             }
 
+            ChooseDifficultyScreen();
+            CheckUIEvents();
         }
-        Debug.Log("X-velocity: " + mRigidBody2D.velocity.x);
+    }
+
+    private void ChooseDifficultyScreen()
+    {
+        difficultyPanel.SetActive(chooseDifficulty);
+
+
+        if (chooseDifficulty)
+        {
+            if(Input.GetButtonUp("Jump"))
+            {
+                Debug.Log("Hard");
+                chooseDifficulty = false;
+
+                difficulty = Difficulty.Hard;
+            }
+            else if(Input.GetButtonUp("Glasses"))
+            {
+                Debug.Log("Easy");
+                chooseDifficulty = false;
+
+                difficulty = Difficulty.Easy;
+            }
+        }
     }
 
     private void InfiniteRun()
@@ -116,8 +160,11 @@ public class PlayerBehaviour : MonoBehaviour
         mRigidBody2D.velocity = new Vector2(currentSpeedRun, mRigidBody2D.velocity.y);
         playerAnimator.speed = currentSpeedRun / 3;
 
-        currentSpeedRun += speedRunAccelaration * Time.deltaTime;
-        currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;
+        if(!chooseDifficulty)
+        {
+            currentSpeedRun += speedRunAccelaration * Time.deltaTime;
+            currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;
+        }
     }
 
     private void CheckLanding()
@@ -200,6 +247,13 @@ public class PlayerBehaviour : MonoBehaviour
         onExtraTimeToJump = false;
     }
 
+    private IEnumerator PreventPrematureInteraction()
+    {
+        allowInteraction = false;
+        yield return new WaitForSeconds(0.5f);
+        allowInteraction = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         mAllCollisions.Add(collision);
@@ -210,4 +264,6 @@ public class PlayerBehaviour : MonoBehaviour
         Collision2D colToRemove = mAllCollisions.Find(c => c.gameObject.Equals(collision.gameObject));
         mAllCollisions.Remove(colToRemove);
     }
+
+    private enum Difficulty { Easy, Hard };
 }
