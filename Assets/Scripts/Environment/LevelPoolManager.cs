@@ -6,8 +6,12 @@ public class LevelPoolManager : MonoBehaviour
 {
     [HideInInspector]
     public List<GameObject> levels;
+    public PlayerBehaviour playerBehaviour;
+    public GameObject plainLevel;
 
-    private int levelsGenerated;
+    private List<GameObject> plainLevels;
+    private int plainLevelsGenerated;
+    private int standardLevelsGenerated;
     private int previousLevelIndex;
 
     void Awake()
@@ -27,7 +31,9 @@ public class LevelPoolManager : MonoBehaviour
 
     private void Init()
     {
-        levelsGenerated = 0;
+        plainLevels = new List<GameObject>();
+        plainLevelsGenerated = 0;
+        standardLevelsGenerated = 0;
         previousLevelIndex = -1;
     }
 
@@ -44,18 +50,51 @@ public class LevelPoolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Camera.main.transform.position.x - 50 * levelsGenerated) > 20)
+        Debug.Log(Camera.main.transform.position.x - CurrentEndOfWorld());
+
+        if ((Camera.main.transform.position.x - CurrentEndOfWorld()) > -20)
         {
-            // Level 13 (easy tutorial level, always goes first)
-            int newLevelIndex = levelsGenerated > 0? (int) (UnityEngine.Random.value * levels.Count) : 0;
-            newLevelIndex = newLevelIndex == previousLevelIndex ? newLevelIndex + 1 : newLevelIndex;
-            newLevelIndex %= levels.Count;
-
-            GameObject newLevel = levels[newLevelIndex];
-            newLevel.transform.localPosition = new Vector3(50 + levelsGenerated * 50, 0, 0);
-
-            previousLevelIndex = newLevelIndex;
-            levelsGenerated++;
+            if(playerBehaviour.chooseDifficulty)
+            {
+                NotPlayingLevelGeneration();
+            }
+            else
+            {
+                StandardLevelGeneration();
+            }
         }
+    }
+
+    private void NotPlayingLevelGeneration()
+    {
+        GameObject newLevel = Instantiate(plainLevel, new Vector3(CurrentEndOfWorld(), 0, 0), Quaternion.identity);
+        plainLevels.Add(newLevel);
+        plainLevelsGenerated++;
+
+
+        if(plainLevels.Count > 5)
+        {
+            Destroy(plainLevels[0]);
+            plainLevels.RemoveAt(0);
+        }
+    }
+
+    private void StandardLevelGeneration()
+    {
+        // Level 13 (easy tutorial level, always goes first)
+        int newLevelIndex = standardLevelsGenerated > 0? (int)(UnityEngine.Random.value * levels.Count) : 0;
+        newLevelIndex = newLevelIndex == previousLevelIndex ? newLevelIndex + 1 : newLevelIndex;
+        newLevelIndex %= levels.Count;
+
+        GameObject newLevel = levels[newLevelIndex];
+        newLevel.transform.localPosition = new Vector3(CurrentEndOfWorld(), 0, 0);
+
+        previousLevelIndex = newLevelIndex;
+        standardLevelsGenerated++;
+    }
+
+    private int CurrentEndOfWorld()
+    {
+        return 10 + 10 * plainLevelsGenerated + 50 * standardLevelsGenerated;
     }
 }
