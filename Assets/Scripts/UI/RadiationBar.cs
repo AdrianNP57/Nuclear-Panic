@@ -14,6 +14,7 @@ public class RadiationBar : MonoBehaviour
     private RadiationEffect radiationEffect;
     private Image barImage;
     public bool lethalRadiation, lowRadiation, mediumRadiation, lowRadiationOut, mediumRadiationOut; //set true if collision happened
+    private float dmgScale = 1f;
 
     public GameObject player;
     public GameObject background;
@@ -71,13 +72,13 @@ public class RadiationBar : MonoBehaviour
     {
         if (lethalRadiation) //lethal collision
         {
-            radiationEffect.SetRadiationTick(100f);
+            radiationEffect.KillPlayer();
             //Cannot exit lethal, since you die.
         }
 
         if (lowRadiation) //low collision
         {
-            radiationEffect.SetRadiationTick(0.6f);
+            radiationEffect.SetRadiationTick(0.05f);
             if (lowRadiationOut) //low collision exit
             {
                 lowRadiation = false;
@@ -87,12 +88,17 @@ public class RadiationBar : MonoBehaviour
 
         if (mediumRadiation) //medium collision
         {
-            radiationEffect.SetRadiationTick(0.2f);
+            radiationEffect.SetRadiationTick(0.05f*dmgScale);
+            dmgScale *= 1.1f;
             if (mediumRadiationOut) //medium collision exit
             {
                 mediumRadiation = false;
                 mediumRadiationOut = false;
             }
+        }
+        else //exit medium radiation => reset scaling damage
+        {
+            dmgScale = 1;
         }
     }
 
@@ -161,7 +167,7 @@ public class RadiationEffect    //Class for radiation logic
             GameObject.Find("RadiationBar").GetComponent<RadiationBar>().mediumRadiation ||
             GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation) //Checks if player is still in radiation or not 
         {
-            radiationAmount += radiationTick * Time.deltaTime; //Update total radiation amount
+            radiationAmount += radiationTick; //Update total radiation amount
         }
     }
 
@@ -172,6 +178,10 @@ public class RadiationEffect    //Class for radiation logic
 
     public void SetRadiationTick(float tick)
     {
-        radiationTick += tick;
+        radiationTick = tick;
+    }
+    public void KillPlayer()
+    {
+        radiationAmount = 100;
     }
 }
