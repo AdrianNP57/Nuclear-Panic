@@ -31,6 +31,10 @@ public class GlassBehaviour : MonoBehaviour
     Material defaultMaterialBackground3;
     Material defaultMaterialBackground4;
 
+    private Light pointLight;
+
+    private bool isEasyMode = false;
+
     bool glassesOn;
     Camera changeColor;
     // Start is called before the first frame update
@@ -45,12 +49,13 @@ public class GlassBehaviour : MonoBehaviour
         defaultMaterialBackground4 = GameObject.Find("1").GetComponent<SpriteRenderer>().material;
         backgroundPrefab = GameObject.Find("Background");
         //backgroundPrefab.SetActive(false);
+        pointLight = haloLight.GetComponent<Light>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!GetComponent<PlayerBehaviour>().chooseDifficulty)
+        if(!GetComponent<PlayerBehaviour>().chooseDifficulty && !isEasyMode)
         {
             if (Input.GetButtonDown("Glasses") && !glassesOn)
             {
@@ -116,5 +121,22 @@ public class GlassBehaviour : MonoBehaviour
         {
             level.transform.GetChild(0).GetChild(0).gameObject.GetComponent<TilemapRenderer>().material = targetMaterial;
         }
+    }
+
+    public void SetEasyMode()
+    {
+        isEasyMode = true;
+        glassesOn = true;
+
+        pointLight.intensity = 4;
+        pointLight.range = 235;
+    }
+
+    public void SetHardMode()
+    {
+        isEasyMode = false;
+
+        pointLight.intensity = 10;
+        pointLight.range = 7;
     }
 }

@@ -45,6 +45,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private AudioEffectPlayer fxPlayer;
 
+    private GlassBehaviour glassBehaviour;
     [HideInInspector]
     public bool chooseDifficulty;
     private bool allowInteraction;
@@ -58,6 +59,7 @@ public class PlayerBehaviour : MonoBehaviour
         mBufferLevels = new List<GameObject>();
         initialPosition = transform.position;
         fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
+        glassBehaviour = GetComponent<GlassBehaviour>();
 
         Init();
     }
@@ -144,6 +146,7 @@ public class PlayerBehaviour : MonoBehaviour
                 chooseDifficulty = false;
 
                 difficulty = Difficulty.Hard;
+                glassBehaviour.SetHardMode();
             }
             else if(Input.GetButtonUp("Glasses"))
             {
@@ -151,6 +154,7 @@ public class PlayerBehaviour : MonoBehaviour
                 chooseDifficulty = false;
 
                 difficulty = Difficulty.Easy;
+                glassBehaviour.SetEasyMode();
             }
         }
     }
