@@ -51,6 +51,8 @@ public class PlayerBehaviour : MonoBehaviour
     private bool allowInteraction;
     private Difficulty difficulty;
 
+    private bool playLanding;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -178,14 +180,19 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (onGround && !previouslyOnGround)
         {
-            fxPlayer.Play(fxPlayer.land);
             inJump = false;
             playerAnimator.Play("Run");
+
+            if(playLanding)
+            {
+                fxPlayer.Play(fxPlayer.land);
+            }
         }
 
-        if(!onGround && previouslyOnGround)
+        if (!onGround && previouslyOnGround)
         {
             StartCoroutine(AllowExtraTimeJump());
+            StartCoroutine(PreventLandingSoundForShortAirTime());
         }
     }
 
@@ -256,6 +263,14 @@ public class PlayerBehaviour : MonoBehaviour
         allowInteraction = false;
         yield return new WaitForSeconds(0.5f);
         allowInteraction = true;
+    }
+
+    private IEnumerator PreventLandingSoundForShortAirTime()
+    {
+        playLanding = false;
+        yield return new WaitForSeconds(0.05f);
+
+        playLanding = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
