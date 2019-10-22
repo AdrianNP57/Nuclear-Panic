@@ -24,6 +24,10 @@ public class RadiationBar : MonoBehaviour
     private bool canRestart;
     private bool playerDead;
 
+    private float lowRadiationBaseDamage = 0.05f;
+    private float mediumRadiationBaseDamage = 0.05f;
+    private float mediumRadiationDamageScale = 1.05f;
+
     private void Awake()
     {
         barImage = transform.Find("Bar").GetComponent<Image>();
@@ -78,7 +82,7 @@ public class RadiationBar : MonoBehaviour
 
         if (lowRadiation) //low collision
         {
-            radiationEffect.SetRadiationTick(0.05f);
+            radiationEffect.SetRadiationTick(lowRadiationBaseDamage);
             if (lowRadiationOut) //low collision exit
             {
                 lowRadiation = false;
@@ -88,8 +92,8 @@ public class RadiationBar : MonoBehaviour
 
         if (mediumRadiation) //medium collision
         {
-            radiationEffect.SetRadiationTick(0.05f*dmgScale);
-            dmgScale *= 1.1f;
+            radiationEffect.SetRadiationTick(mediumRadiationBaseDamage*dmgScale);
+            dmgScale *= mediumRadiationDamageScale;
             if (mediumRadiationOut) //medium collision exit
             {
                 mediumRadiation = false;
