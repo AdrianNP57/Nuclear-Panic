@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - MediumRadiation
   - LowRadiation
+  - LethalRadiation
   layers:
   - Default
   - TransparentFX
