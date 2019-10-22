@@ -15,6 +15,8 @@ public class LevelPoolManager : MonoBehaviour
     private int standardLevelsGenerated;
     private int previousLevelIndex;
 
+    private List<GameObject> currentlyVisibleLevels;
+
     void Awake()
     {
         levels = new List<GameObject>();
@@ -33,9 +35,15 @@ public class LevelPoolManager : MonoBehaviour
     private void Init()
     {
         plainLevels = new List<GameObject>();
+        currentlyVisibleLevels = new List<GameObject>();
         plainLevelsGenerated = 0;
         standardLevelsGenerated = 0;
         previousLevelIndex = -1;
+
+        foreach(GameObject level in levels)
+        {
+            level.SetActive(false);
+        }
     }
 
     public void ReInit()
@@ -94,9 +102,18 @@ public class LevelPoolManager : MonoBehaviour
 
         GameObject newLevel = levels[newLevelIndex];
         newLevel.transform.localPosition = new Vector3(CurrentEndOfWorld(), 0, 0);
+        newLevel.SetActive(true);
 
         previousLevelIndex = newLevelIndex;
         standardLevelsGenerated++;
+
+        currentlyVisibleLevels.Add(newLevel);
+        if(currentlyVisibleLevels.Count > 2)
+        {
+            Debug.Log("Disabled level");
+            currentlyVisibleLevels[0].SetActive(false);
+            currentlyVisibleLevels.RemoveAt(0);
+        }
     }
 
     public int CurrentEndOfWorld()
