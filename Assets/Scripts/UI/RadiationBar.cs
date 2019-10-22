@@ -112,6 +112,7 @@ public class RadiationBar : MonoBehaviour
         Init();
 
         player.GetComponent<PlayerBehaviour>().Init();
+        player.GetComponent<GlassBehaviour>().Init();
         GameObject.Find("LevelPool").GetComponent<LevelPoolManager>().ReInit();
         Camera.main.GetComponent<CameraFollowingPlayer>().Init();
         radiationEffect.Init();

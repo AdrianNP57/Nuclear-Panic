@@ -40,7 +40,6 @@ public class GlassBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        glassesOn = false;
         changeColor = Camera.main.GetComponent<Camera>();
         defaultMaterial = GameObject.Find("Tilemap").GetComponent<TilemapRenderer>().material;
         defaultMaterialBackground1 = GameObject.Find("4").GetComponent<SpriteRenderer>().material;
@@ -50,6 +49,13 @@ public class GlassBehaviour : MonoBehaviour
         backgroundPrefab = GameObject.Find("Background");
         //backgroundPrefab.SetActive(false);
         pointLight = haloLight.GetComponent<Light>();
+
+        Init();
+    }
+
+    public void Init()
+    {
+        glassesOn = false;
     }
 
     // Update is called once per frame
