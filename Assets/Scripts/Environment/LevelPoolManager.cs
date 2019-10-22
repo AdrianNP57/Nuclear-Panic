@@ -87,10 +87,10 @@ public class LevelPoolManager : MonoBehaviour
 
     private void StandardLevelGeneration()
     {
-        // Level 13 (easy tutorial level, always goes first)
-        int newLevelIndex = standardLevelsGenerated > 0? (int)(UnityEngine.Random.value * levels.Count) : 0;
+        // Tutorial level always first and never again
+        int newLevelIndex = standardLevelsGenerated > 0? UnityEngine.Random.Range(1, levels.Count) : 0;
         newLevelIndex = newLevelIndex == previousLevelIndex ? newLevelIndex + 1 : newLevelIndex;
-        newLevelIndex %= levels.Count;
+        newLevelIndex = newLevelIndex < levels.Count? newLevelIndex : 1;
 
         GameObject newLevel = levels[newLevelIndex];
         newLevel.transform.localPosition = new Vector3(CurrentEndOfWorld(), 0, 0);
