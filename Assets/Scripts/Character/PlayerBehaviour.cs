@@ -242,6 +242,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             SceneManager.LoadScene("MainMenuScene");
         }
+
+        if(Input.GetKeyDown("p"))
+        {
+            Time.timeScale = 0;
+        }
     }
 
     private IEnumerator PreventMultiJump()
