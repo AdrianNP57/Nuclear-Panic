@@ -39,4 +39,9 @@ public class AudioEffectPlayer : MonoBehaviour
         fxSource.Stop();
         playingRadiationLow = playingRadiationMedium = false;
     }
+
+    public void SetEnabled(bool enabled)
+    {
+        fxSource.volume = enabled ? 1.0f : 0.0f;
+    }
 }

@@ -77,6 +77,7 @@ public class PlayerBehaviour : MonoBehaviour
         inJump = false;
         isDead = false;
         chooseDifficulty = true;
+        fxPlayer.SetEnabled(true);
 
         difficultyPanel.SetActive(true);
         StartCoroutine(PreventPrematureInteraction());
@@ -90,9 +91,11 @@ public class PlayerBehaviour : MonoBehaviour
         {
             return;
         }
+
         isDead = true;
         playerAnimator.Play("Die");
         mRigidBody2D.velocity = Vector2.zero;
+        fxPlayer.SetEnabled(false);
     }
 
     // Update is called once per frame
