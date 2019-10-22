@@ -44,6 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 initialPosition;
 
     private AudioEffectPlayer fxPlayer;
+    private MusicManager musicManager;
 
     private GlassBehaviour glassBehaviour;
     [HideInInspector]
@@ -61,6 +62,7 @@ public class PlayerBehaviour : MonoBehaviour
         mBufferLevels = new List<GameObject>();
         initialPosition = transform.position;
         fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
+        musicManager = Camera.main.GetComponent<MusicManager>();
         glassBehaviour = GetComponent<GlassBehaviour>();
 
         Init();
@@ -78,6 +80,7 @@ public class PlayerBehaviour : MonoBehaviour
         isDead = false;
         chooseDifficulty = true;
         fxPlayer.SetEnabled(true);
+        musicManager.InitMusic();
 
         difficultyPanel.SetActive(true);
         StartCoroutine(PreventPrematureInteraction());
@@ -152,6 +155,7 @@ public class PlayerBehaviour : MonoBehaviour
 
                 difficulty = Difficulty.Hard;
                 glassBehaviour.SetHardMode();
+                musicManager.StartTransition();
             }
             else if(Input.GetButtonUp("Glasses"))
             {
@@ -160,6 +164,7 @@ public class PlayerBehaviour : MonoBehaviour
 
                 difficulty = Difficulty.Easy;
                 glassBehaviour.SetEasyMode();
+                musicManager.StartTransition();
             }
         }
     }

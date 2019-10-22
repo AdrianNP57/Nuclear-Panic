@@ -122,8 +122,8 @@ public class RadiationBar : MonoBehaviour
             parallaxItem.gameObject.GetComponent<ParallaxEffect>().Init();
         }
 
-        musicSource.Stop();
-        musicSource.Play();
+        //musicSource.Stop();
+        //musicSource.Play();
     }
 
     private void ChangeGameState(bool activeGame)
