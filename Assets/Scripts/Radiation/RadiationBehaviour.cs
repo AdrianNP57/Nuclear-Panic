@@ -10,6 +10,9 @@ public class RadiationBehaviour : MonoBehaviour
     private AudioEffectPlayer fxPlayer;
     private float mOriginalScaleX;
     private bool mJustSwichValue = false;
+
+    private bool currentlyPlayingLow = false;
+    private bool currentlyPlayingMedium = false;
     
     // Start
     void Start()
@@ -41,13 +44,15 @@ public class RadiationBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(tag == "LowRadiation")
+            if(tag == "LowRadiation" && !currentlyPlayingLow)
             {
                 fxPlayer.Play(fxPlayer.radiationLow);
+                currentlyPlayingLow = true;
             }
-            else if(tag == "MediumRadiation")
+            else if(tag == "MediumRadiation" && !currentlyPlayingMedium)
             {
                 fxPlayer.Play(fxPlayer.radiationMedium);
+                currentlyPlayingMedium = true;
             }
         }
     }
@@ -57,6 +62,7 @@ public class RadiationBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             fxPlayer.Stop();
+            currentlyPlayingLow = currentlyPlayingMedium = false;
         }
     }
 }
