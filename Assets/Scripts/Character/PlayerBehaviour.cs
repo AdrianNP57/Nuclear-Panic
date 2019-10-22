@@ -268,7 +268,7 @@ public class PlayerBehaviour : MonoBehaviour
     private IEnumerator PreventLandingSoundForShortAirTime()
     {
         playLanding = false;
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
 
         playLanding = true;
     }

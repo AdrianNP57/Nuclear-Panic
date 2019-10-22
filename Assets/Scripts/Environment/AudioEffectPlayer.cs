@@ -11,19 +11,32 @@ public class AudioEffectPlayer : MonoBehaviour
 
     public AudioSource fxSource;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private bool playingRadiationLow;
+    private bool playingRadiationMedium;
 
-    }
 
     public void Play(AudioClip clip)
     {
-        fxSource.PlayOneShot(clip);
+
+        if(clip == radiationLow && !playingRadiationLow)
+        {
+            fxSource.PlayOneShot(clip);
+            playingRadiationLow = true;
+        }
+        else if(clip == radiationMedium && !playingRadiationMedium)
+        {
+            fxSource.PlayOneShot(clip);
+            playingRadiationMedium = true;
+        }
+        else if(clip != radiationLow && clip != radiationMedium)
+        {
+            fxSource.PlayOneShot(clip);
+        }
     }
 
     public void Stop()
     {
         fxSource.Stop();
+        playingRadiationLow = playingRadiationMedium = false;
     }
 }
