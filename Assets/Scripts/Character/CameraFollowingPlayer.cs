@@ -42,7 +42,7 @@ public class CameraFollowingPlayer : MonoBehaviour {
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x, cameraY, gameObject.transform.position.z);
                 gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(playerBehaviour.currentSpeedRun, 0);
 
-                if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 0)
+                if (gameObject.GetComponent<Camera>().WorldToScreenPoint(mPlayer.transform.position).x <= 80)
                 {
                     GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation = true; //Collision with gamma
                 }
