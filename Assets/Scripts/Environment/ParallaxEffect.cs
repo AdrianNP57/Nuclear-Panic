@@ -4,35 +4,45 @@ using UnityEngine;
 
 public class ParallaxEffect : MonoBehaviour
 {
-    private float length, currentPos;
+    private float length, lengthY, currentPos, currentPosY;
     public GameObject cam;
     public float parallaxEffect;
-    private float dist;
-    private float temp;
+    private float dist, distY;
+    private float temp, tempY;
 
-    private float initialPos;
+    private float initialPos, initialPosY;
 
     // Start is called before the first frame update
     void Start()
     {
         initialPos = transform.position.x;
+        initialPosY = transform.position.y;
         Init();
     }
 
     public void Init()
     {
         currentPos = initialPos - 10;
+        currentPosY = initialPosY - 1;
+
         length = GetComponent<SpriteRenderer>().bounds.size.x;
-        temp = 0;
-        dist = 0;
+        lengthY = GetComponent<SpriteRenderer>().bounds.size.y;
+
+        temp = tempY = 0;
+        dist = distY = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         temp = (cam.transform.position.x * (1.0f - parallaxEffect));
+        tempY = (cam.transform.position.y * (1.0f - parallaxEffect));
+
         dist = (cam.transform.position.x * parallaxEffect);
-        transform.position = new Vector3(currentPos + dist, transform.position.y, transform.position.z);
+        distY = (cam.transform.position.y * parallaxEffect);
+
+        transform.position = new Vector3(currentPos + dist, currentPosY + distY, transform.position.z);
+
         if(temp > currentPos + length)
         {
             currentPos += length;
@@ -40,6 +50,15 @@ public class ParallaxEffect : MonoBehaviour
         else if(temp < currentPos - length)
         {
             currentPos -= length;
+        }
+
+        if (tempY > currentPosY + lengthY)
+        {
+            currentPosY += lengthY;
+        }
+        else if (tempY < currentPosY - lengthY)
+        {
+            currentPosY -= lengthY;
         }
     }
 }
