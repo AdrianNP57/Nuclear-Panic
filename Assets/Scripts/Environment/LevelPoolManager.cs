@@ -107,6 +107,7 @@ public class LevelPoolManager : MonoBehaviour
         previousLevelIndex = newLevelIndex;
         standardLevelsGenerated++;
 
+        currentlyVisibleLevels.Remove(newLevel);
         currentlyVisibleLevels.Add(newLevel);
         if(currentlyVisibleLevels.Count > 2)
         {
