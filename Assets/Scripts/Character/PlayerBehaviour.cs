@@ -86,6 +86,7 @@ public class PlayerBehaviour : MonoBehaviour
         StartCoroutine(PreventPrematureInteraction());
 
         playerAnimator.Play("Run");
+        mAllCollisions.Clear();
     }
 
     public void Die()
