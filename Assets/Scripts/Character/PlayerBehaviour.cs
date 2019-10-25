@@ -29,7 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool onExtraTimeToJump = false;
     private bool jumpEnabled = true;
     private bool inJump = false;
-    private bool isDead = false;
+    public bool isDead { get; private set; }
     public float extraTimeToJump;
 
     public float initialSpeedRun;
@@ -53,6 +53,11 @@ public class PlayerBehaviour : MonoBehaviour
     private Difficulty difficulty;
 
     private bool playLanding;
+
+    public SpriteRenderer headRenderer;
+    public Sprite damageSprite;
+    public Sprite okaySprite;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -84,6 +89,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         difficultyPanel.SetActive(true);
         StartCoroutine(PreventPrematureInteraction());
+
+        headRenderer.sprite = okaySprite;
 
         playerAnimator.Play("Run");
         mAllCollisions.Clear();
@@ -256,6 +263,19 @@ public class PlayerBehaviour : MonoBehaviour
         {
             Time.timeScale = 0;
         }
+    }
+
+    public void SetSpriteDamaged(bool damaged)
+    {
+        if (isDead)
+        {
+            return;
+        }
+        if (damaged)
+        {
+            return;
+        }
+        headRenderer.sprite = damaged ? damageSprite : okaySprite;
     }
 
     private IEnumerator PreventMultiJump()
