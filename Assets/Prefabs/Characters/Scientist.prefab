@@ -221,10 +221,11 @@ MonoBehaviour:
   - {fileID: 431860997111004206}
   - {fileID: 431860996556451240}
   lowRedValue: 0.3
-  highRedValue: 0.5
+  highRedValue: 0.75
   blinkInterval: 0.1
   receiveingDamage: 0
   score: {fileID: 0}
+  highScoreBehaviour: {fileID: 0}
   headRenderer: {fileID: 431860997247705854}
   damageSprite: {fileID: 21300000, guid: 9a0c972492c2a1b43b242561909b45a7, type: 3}
   okaySprite: {fileID: 21300000, guid: 68ed71b5760623347821e9eb2a0763a4, type: 3}
