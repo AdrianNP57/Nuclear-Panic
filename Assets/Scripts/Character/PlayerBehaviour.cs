@@ -29,7 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool onExtraTimeToJump = false;
     private bool jumpEnabled = true;
     private bool inJump = false;
-    private bool isDead = false;
+    public bool isDead = false;
     public float extraTimeToJump;
 
     public float initialSpeedRun;
