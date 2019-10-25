@@ -66,6 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
     public SpriteRenderer headRenderer;
     public Sprite damageSprite;
     public Sprite okaySprite;
+    public Sprite deadSprite;
 
 
     // Start is called before the first frame update
@@ -101,7 +102,7 @@ public class PlayerBehaviour : MonoBehaviour
         difficultyPanel.SetActive(true);
         StartCoroutine(PreventPrematureInteraction());
 
-        headRenderer.sprite = okaySprite;
+        SetSpriteDamaged(false);
 
         playerAnimator.Play("Run");
         mAllCollisions.Clear();
@@ -115,6 +116,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         isDead = true;
+        headRenderer.sprite = deadSprite;
         playerAnimator.Play("Die");
         mRigidBody2D.velocity = Vector2.zero;
         fxPlayer.SetEnabled(false);
@@ -216,6 +218,7 @@ public class PlayerBehaviour : MonoBehaviour
                 sprite.color = Color.white;
             }
         }
+        SetSpriteDamaged(receiveingDamage);
 
         yield return new WaitForSeconds(blinkInterval);
         StartCoroutine(ReceiveDamage());
@@ -300,10 +303,6 @@ public class PlayerBehaviour : MonoBehaviour
     public void SetSpriteDamaged(bool damaged)
     {
         if (isDead)
-        {
-            return;
-        }
-        if (damaged)
         {
             return;
         }
