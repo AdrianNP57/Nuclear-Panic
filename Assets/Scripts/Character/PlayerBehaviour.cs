@@ -61,6 +61,8 @@ public class PlayerBehaviour : MonoBehaviour
     public bool receiveingDamage = false;
     private bool isBlinkingHigh = false;
 
+    public Score score;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -184,7 +186,7 @@ public class PlayerBehaviour : MonoBehaviour
         mRigidBody2D.velocity = new Vector2(currentSpeedRun, mRigidBody2D.velocity.y);
         playerAnimator.speed = currentSpeedRun / 3;
 
-        if(!chooseDifficulty)
+        if(!chooseDifficulty && score.CurrentScore() > 100)
         {
             currentSpeedRun += speedRunAccelaration * Time.deltaTime;
             currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;

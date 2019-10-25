@@ -3856,7 +3856,7 @@ PrefabInstance:
     - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
         type: 3}
       propertyPath: speedRunAccelaration
-      value: 0.025
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
         type: 3}
@@ -3928,6 +3928,11 @@ PrefabInstance:
       propertyPath: receiveingDamage
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
+        type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 2016592757}
     - target: {fileID: 2251832717750595035, guid: b55b2b81955556f45aa84d031469abc9,
         type: 3}
       propertyPath: m_Range
