@@ -18,17 +18,13 @@ public class RadiationCollision : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D coll)
     {
-        try
+        if (coll.gameObject.tag == "LowRadiation") //Alpha Collision Exit
         {
-            if (coll.gameObject.tag == "LowRadiation") //Alpha Collision Exit
-            {
-                GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lowRadiationOut = true;
-            }
-            else if (coll.gameObject.tag == "MediumRadiation") //Beta Collision Exit
-            {
-                GameObject.Find("RadiationBar").GetComponent<RadiationBar>().mediumRadiationOut = true;
-            }
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lowRadiationOut = true;
         }
-        catch (Exception e) {}
+        else if (coll.gameObject.tag == "MediumRadiation") //Beta Collision Exit
+        {
+            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().mediumRadiationOut = true;
+        }
     }
 }

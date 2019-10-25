@@ -9,6 +9,8 @@ public class HighScoreBehaviour : MonoBehaviour
     private TextMeshProUGUI text;
     private static int highScore = -1;
 
+    public bool hardMode = false;
+
     void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
@@ -17,7 +19,7 @@ public class HighScoreBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(scoreBehaviour.CurrentScore() > highScore)
+        if(scoreBehaviour.CurrentScore() > highScore && hardMode)
         {
             highScore = scoreBehaviour.CurrentScore();
             text.text = highScore.ToString("0");

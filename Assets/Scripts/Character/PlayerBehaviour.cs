@@ -62,6 +62,7 @@ public class PlayerBehaviour : MonoBehaviour
     private bool isBlinkingHigh = false;
 
     public Score score;
+    public HighScoreBehaviour highScoreBehaviour;
 
     public SpriteRenderer headRenderer;
     public Sprite damageSprite;
@@ -177,6 +178,8 @@ public class PlayerBehaviour : MonoBehaviour
                 difficulty = Difficulty.Hard;
                 glassBehaviour.SetHardMode();
                 musicManager.StartTransition();
+
+                highScoreBehaviour.hardMode = true;
             }
             else if(Input.GetButtonUp("Glasses"))
             {
@@ -186,6 +189,8 @@ public class PlayerBehaviour : MonoBehaviour
                 difficulty = Difficulty.Easy;
                 glassBehaviour.SetEasyMode();
                 musicManager.StartTransition();
+
+                highScoreBehaviour.hardMode = false;
             }
         }
     }
