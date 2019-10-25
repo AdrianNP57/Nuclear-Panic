@@ -24,9 +24,9 @@ public class RadiationBar : MonoBehaviour
     private bool canRestart;
     private bool playerDead;
 
-    private float lowRadiationBaseDamage = 0.05f;
-    private float mediumRadiationBaseDamage = 0.05f;
-    private float mediumRadiationDamageScale = 1.05f;
+    private float lowRadiationBaseDamage = 0.1f;
+    private float mediumRadiationBaseDamage = 0.4f;
+    private float mediumRadiationDamageScale = 1f;
 
     private void Awake()
     {

@@ -11,6 +11,7 @@ public class Score : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     private int scoreSubract;
+    private int currentScore = 0;
 
     void Update()
     {
@@ -26,7 +27,12 @@ public class Score : MonoBehaviour
         }
         else
         {
-            return ((int)player.transform.position.x) - scoreSubract > 0? ((int)player.transform.position.x) - scoreSubract : 0;
+            if (!player.GetComponent<PlayerBehaviour>().isDead)
+            {
+                currentScore = ((int)player.transform.position.x) - scoreSubract > 0 ? ((int)player.transform.position.x) - scoreSubract : 0;
+            }
+
+            return currentScore;
         }
     }
 }

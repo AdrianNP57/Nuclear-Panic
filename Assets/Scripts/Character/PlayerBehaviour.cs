@@ -54,6 +54,15 @@ public class PlayerBehaviour : MonoBehaviour
 
     private bool playLanding;
 
+    public SpriteRenderer[] playerSprites;
+    public float lowRedValue;
+    public float highRedValue;
+    public float blinkInterval;
+    public bool receiveingDamage = false;
+    private bool isBlinkingHigh = false;
+
+    public Score score;
+
     public SpriteRenderer headRenderer;
     public Sprite damageSprite;
     public Sprite okaySprite;
@@ -70,6 +79,7 @@ public class PlayerBehaviour : MonoBehaviour
         musicManager = Camera.main.GetComponent<MusicManager>();
         glassBehaviour = GetComponent<GlassBehaviour>();
 
+        StartCoroutine(ReceiveDamage());
         Init();
     }
 
@@ -84,6 +94,7 @@ public class PlayerBehaviour : MonoBehaviour
         inJump = false;
         isDead = false;
         chooseDifficulty = true;
+        receiveingDamage = false;
         fxPlayer.SetEnabled(true);
         musicManager.InitMusic();
 
@@ -182,11 +193,32 @@ public class PlayerBehaviour : MonoBehaviour
         mRigidBody2D.velocity = new Vector2(currentSpeedRun, mRigidBody2D.velocity.y);
         playerAnimator.speed = currentSpeedRun / 3;
 
-        if(!chooseDifficulty)
+        if(!chooseDifficulty && score.CurrentScore() > 100)
         {
             currentSpeedRun += speedRunAccelaration * Time.deltaTime;
             currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;
         }
+    }
+
+    private IEnumerator ReceiveDamage()
+    {
+        float antiRedValue = isBlinkingHigh ? highRedValue : lowRedValue;
+        isBlinkingHigh = !isBlinkingHigh;
+
+        foreach (SpriteRenderer sprite in playerSprites)
+        {
+            if (receiveingDamage)
+            {
+                sprite.color = new Color(1, 1 - antiRedValue, 1 - antiRedValue);
+            }
+            else
+            {
+                sprite.color = Color.white;
+            }
+        }
+
+        yield return new WaitForSeconds(blinkInterval);
+        StartCoroutine(ReceiveDamage());
     }
 
     private void CheckLanding()

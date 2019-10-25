@@ -41,13 +41,15 @@ public class RadiationBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if(tag == "LowRadiation")
+            if (tag == "LowRadiation")
             {
                 fxPlayer.Play(fxPlayer.radiationLow);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>().receiveingDamage = true;
             }
-            else if(tag == "MediumRadiation")
+            else if (tag == "MediumRadiation")
             {
                 fxPlayer.Play(fxPlayer.radiationMedium);
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>().receiveingDamage = true;
             }
         }
     }
@@ -57,6 +59,7 @@ public class RadiationBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             fxPlayer.Stop();
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerBehaviour>().receiveingDamage = false;
         }
     }
 }

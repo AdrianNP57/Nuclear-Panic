@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,13 +18,17 @@ public class RadiationCollision : MonoBehaviour
     }
     public void OnTriggerExit2D(Collider2D coll)
     {
-        if (coll.gameObject.tag == "LowRadiation") //Alpha Collision Exit
+        try
         {
-            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lowRadiationOut = true;
+            if (coll.gameObject.tag == "LowRadiation") //Alpha Collision Exit
+            {
+                GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lowRadiationOut = true;
+            }
+            else if (coll.gameObject.tag == "MediumRadiation") //Beta Collision Exit
+            {
+                GameObject.Find("RadiationBar").GetComponent<RadiationBar>().mediumRadiationOut = true;
+            }
         }
-        else if (coll.gameObject.tag == "MediumRadiation") //Beta Collision Exit
-        {
-            GameObject.Find("RadiationBar").GetComponent<RadiationBar>().mediumRadiationOut = true;
-        }
+        catch (Exception e) {}
     }
 }
