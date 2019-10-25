@@ -22,5 +22,11 @@ public class HighScoreBehaviour : MonoBehaviour
             highScore = scoreBehaviour.CurrentScore();
             text.text = highScore.ToString("0");
         }
+
+        if(Input.GetKey("r"))
+        {
+            highScore = 0;
+            text.text = highScore.ToString("0");
+        }
     }
 }
