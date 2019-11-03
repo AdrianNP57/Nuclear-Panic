@@ -131,8 +131,6 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
 
-        InfiniteRun();
-
         if(allowInteraction)
         {
             if (!chooseDifficulty)
@@ -192,18 +190,6 @@ public class PlayerBehaviour : MonoBehaviour
 
                 highScoreBehaviour.hardMode = false;
             }
-        }
-    }
-
-    private void InfiniteRun()
-    {
-        mRigidBody2D.velocity = new Vector2(currentSpeedRun, mRigidBody2D.velocity.y);
-        playerAnimator.speed = currentSpeedRun / 3;
-
-        if(!chooseDifficulty && score.CurrentScore() > 100)
-        {
-            currentSpeedRun += speedRunAccelaration * Time.deltaTime;
-            currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;
         }
     }
 
