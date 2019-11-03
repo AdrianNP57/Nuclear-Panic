@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO implement coyote time
 public class JumpBehaviour : MonoBehaviour
 {
     public float jumpLength;
@@ -17,7 +18,7 @@ public class JumpBehaviour : MonoBehaviour
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
 
-        EventManager.StartListening("InputJump", Jump);
+        EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
     }
 
     private void Update()
@@ -52,4 +53,9 @@ public class JumpBehaviour : MonoBehaviour
         yield return new WaitForSeconds(extraTimeToJump);
         onExtraTimeToJump = false;
     }*/
+
+    private void OnDifficultyChosen()
+    {
+        EventManager.StartListening("InputJump", Jump);
+    }
 }

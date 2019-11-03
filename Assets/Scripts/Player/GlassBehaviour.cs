@@ -51,6 +51,9 @@ public class GlassBehaviour : MonoBehaviour
         pointLight = haloLight.GetComponent<Light>();
 
         Init();
+
+        EventManager.StartListening("EasyDifficultyChosen", SetEasyMode);
+        EventManager.StartListening("HardDifficultyChosen", SetHardMode);
     }
 
     public void Init()
@@ -61,7 +64,7 @@ public class GlassBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!GetComponent<PlayerBehaviour>().chooseDifficulty && !isEasyMode)
+        /*if(!GetComponent<PlayerBehaviour>().chooseDifficulty && !isEasyMode)
         {
             if (Input.GetButtonDown("Glasses") && !glassesOn)
             {
@@ -73,7 +76,7 @@ public class GlassBehaviour : MonoBehaviour
                 Debug.Log("Glasses off");
                 glassesOn = false;
             }
-        }
+        }*/
 
         Material targetMaterial = glassesOn? darkMaterial : defaultMaterial;
         Color backgroundColor = glassesOn? new Color(0.0f, 0.0f, 0.0f) : new Color(0.2f, 0.3f, 0.5f);

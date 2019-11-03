@@ -4,18 +4,19 @@ using UnityEngine;
 
 public class LevelPoolManager : MonoBehaviour
 {
+    public GameObject plainLevelPrefab;
+
     [HideInInspector]
     public List<GameObject> levels;
     [HideInInspector]
     public List<GameObject> plainLevels;
-    public PlayerBehaviour playerBehaviour;
-    public GameObject plainLevelPrefab;
+
+    private List<GameObject> currentlyVisibleLevels;
 
     private int plainLevelsGenerated;
     private int standardLevelsGenerated;
     private int previousLevelIndex;
-
-    private List<GameObject> currentlyVisibleLevels;
+    private bool generateOnlyPlainLevel;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class LevelPoolManager : MonoBehaviour
         }
 
         transform.DetachChildren();
+        EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
 
         Init();
     }
@@ -36,9 +38,12 @@ public class LevelPoolManager : MonoBehaviour
     {
         plainLevels = new List<GameObject>();
         currentlyVisibleLevels = new List<GameObject>();
+
         plainLevelsGenerated = 0;
         standardLevelsGenerated = 0;
         previousLevelIndex = -1;
+
+        generateOnlyPlainLevel = true;
 
         foreach(GameObject level in levels)
         {
@@ -66,9 +71,9 @@ public class LevelPoolManager : MonoBehaviour
     {
         if ((Camera.main.transform.position.x - CurrentEndOfWorld()) > -20)
         {
-            if(playerBehaviour.chooseDifficulty)
+            if(generateOnlyPlainLevel)
             {
-                NotPlayingLevelGeneration();
+                PlainLevelGeneration();
             }
             else
             {
@@ -77,7 +82,7 @@ public class LevelPoolManager : MonoBehaviour
         }
     }
 
-    private void NotPlayingLevelGeneration()
+    private void PlainLevelGeneration()
     {
         GameObject newLevel = Instantiate(plainLevelPrefab, new Vector3(CurrentEndOfWorld(), 0, 0), Quaternion.identity);
         plainLevels.Add(newLevel);
@@ -113,6 +118,11 @@ public class LevelPoolManager : MonoBehaviour
             currentlyVisibleLevels[0].SetActive(false);
             currentlyVisibleLevels.RemoveAt(0);
         }
+    }
+
+    private void OnDifficultyChosen()
+    {
+        generateOnlyPlainLevel = false;
     }
 
     public int CurrentEndOfWorld()

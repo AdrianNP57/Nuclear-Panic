@@ -43,11 +43,7 @@ public class PlayerBehaviour : MonoBehaviour
     private AudioEffectPlayer fxPlayer;
     private MusicManager musicManager;
 
-    private GlassBehaviour glassBehaviour;
-    [HideInInspector]
-    public bool chooseDifficulty;
     private bool allowInteraction;
-    private Difficulty difficulty;
 
     private bool playLanding;
 
@@ -76,7 +72,6 @@ public class PlayerBehaviour : MonoBehaviour
         initialPosition = transform.position;
         fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
         musicManager = Camera.main.GetComponent<MusicManager>();
-        glassBehaviour = GetComponent<GlassBehaviour>();
 
         StartCoroutine(ReceiveDamage());
         Init();
@@ -92,7 +87,6 @@ public class PlayerBehaviour : MonoBehaviour
         jumpEnabled = true;
         inJump = false;
         isDead = false;
-        chooseDifficulty = true;
         receiveingDamage = false;
         fxPlayer.SetEnabled(true);
         musicManager.InitMusic();
@@ -130,9 +124,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if(allowInteraction)
         {
-            if (!chooseDifficulty)
+            /*if (!chooseDifficulty)
             {
-                /*CheckLanding();
+                CheckLanding();
                 CheckFallingIntoVoid();
 
                 // TODO move to different method
@@ -149,43 +143,10 @@ public class PlayerBehaviour : MonoBehaviour
                         mRigidBody2D.velocity = new Vector2(currentSpeedRun * 1.175f, mRigidBody2D.velocity.y);
                     }
 
-                }*/
-            }
+                }
+            }*/
 
-            ChooseDifficultyScreen();
             CheckUIEvents();
-        }
-    }
-
-    private void ChooseDifficultyScreen()
-    {
-        difficultyPanel.SetActive(chooseDifficulty);
-
-
-        if (chooseDifficulty)
-        {
-            if(Input.GetButtonUp("Jump"))
-            {
-                Debug.Log("Hard");
-                chooseDifficulty = false;
-
-                difficulty = Difficulty.Hard;
-                glassBehaviour.SetHardMode();
-                musicManager.StartTransition();
-
-                highScoreBehaviour.hardMode = true;
-            }
-            else if(Input.GetButtonUp("Glasses"))
-            {
-                Debug.Log("Easy");
-                chooseDifficulty = false;
-
-                difficulty = Difficulty.Easy;
-                glassBehaviour.SetEasyMode();
-                musicManager.StartTransition();
-
-                highScoreBehaviour.hardMode = false;
-            }
         }
     }
 
