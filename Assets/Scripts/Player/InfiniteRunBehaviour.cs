@@ -8,13 +8,10 @@ public class InfiniteRunBehaviour : MonoBehaviour
     public float maxSpeedRun;
     public float speedRunAccelaration;
 
-    public Animator playerAnimator;
-
-    private float currentSpeedRun;
     private Rigidbody2D rigidbody2D;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
 
@@ -23,20 +20,19 @@ public class InfiniteRunBehaviour : MonoBehaviour
 
     void Init()
     {
-        currentSpeedRun = initialSpeedRun;
+        PlayerData.instance.currentSpeed = initialSpeedRun;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rigidbody2D.velocity = new Vector2(currentSpeedRun, rigidbody2D.velocity.y);
-        playerAnimator.speed = currentSpeedRun / 3;
+        rigidbody2D.velocity = new Vector2(PlayerData.instance.currentSpeed, rigidbody2D.velocity.y);
 
         // TODO fix this
         if (/*!chooseDifficulty && score.CurrentScore() > 100*/ false)
         {
-            currentSpeedRun += speedRunAccelaration * Time.deltaTime;
-            currentSpeedRun = currentSpeedRun < maxSpeedRun ? currentSpeedRun : maxSpeedRun;
+            PlayerData.instance.currentSpeed += speedRunAccelaration * Time.deltaTime;
+            PlayerData.instance.currentSpeed = PlayerData.instance.currentSpeed < maxSpeedRun ? PlayerData.instance.currentSpeed : maxSpeedRun;
         }
     }
 }

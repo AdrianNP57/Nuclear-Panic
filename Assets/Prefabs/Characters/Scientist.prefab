@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860995510788264}
   - component: {fileID: 431860995510788267}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Weapon-Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,10 +91,15 @@ GameObject:
   - component: {fileID: 431860995537063810}
   - component: {fileID: 431860995537063811}
   - component: {fileID: 431860995537063808}
+  - component: {fileID: 2125905537}
+  - component: {fileID: 2125905541}
+  - component: {fileID: 2125905534}
+  - component: {fileID: 2125905536}
   - component: {fileID: 4105179104802773154}
+  - component: {fileID: 2125905540}
   - component: {fileID: 4790778782607250189}
   - component: {fileID: 8009348826128182466}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Scientist
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -154,6 +159,67 @@ CapsuleCollider2D:
   m_Offset: {x: 0.017938256, y: 0.25996447}
   m_Size: {x: 0.47692513, y: 1.3402796}
   m_Direction: 0
+--- !u!114 &2125905537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc6fe14cc67155940a03bca1f8bc75fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raySpacing: 0.3
+  rayOffsetY: -0.2
+  rayLength: 0.3
+  rayMask:
+    serializedVersion: 2
+    m_Bits: 1
+  grounded: 0
+--- !u!114 &2125905541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c413f2e7deec627428c463cc4a04ac01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentSpeed: 0
+--- !u!114 &2125905534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac94af9d1cfc6ab44bf0bcc24a0950ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSpeedRun: 3
+  maxSpeedRun: 8
+  speedRunAccelaration: 0.05
+--- !u!114 &2125905536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a32a3519258f445960285a249f62f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpLength: 3
+  jumpHeight: 2.5
 --- !u!114 &4105179104802773154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +249,19 @@ MonoBehaviour:
   glassesRenderer: {fileID: 431860995637977506}
   glassesOnSprite: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
   glassesOffSprite: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
+--- !u!114 &2125905540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c714a2cc9dc3334da871bac633a3b3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 431860995699440753}
 --- !u!114 &4790778782607250189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +277,6 @@ MonoBehaviour:
   playerAnimator: {fileID: 431860995699440753}
   mIsFixedJump: 1
   mIncreasedRampSpeed: 1
-  mForceJump: 5
   mJumpLength: 3
   mJumpHeight: 2.5
   mLevels:
@@ -252,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860995597723479}
   - component: {fileID: 431860995597723478}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Shield
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860995637977517}
   - component: {fileID: 431860995637977506}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -412,7 +490,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860995699440752}
   - component: {fileID: 431860995699440753}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860995787964943}
   - component: {fileID: 431860995787964942}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -547,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431860996467219442}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -579,7 +657,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860996556451241}
   - component: {fileID: 431860996556451240}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +737,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860997111004207}
   - component: {fileID: 431860997111004206}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +817,7 @@ GameObject:
   m_Component:
   - component: {fileID: 431860997247705855}
   - component: {fileID: 431860997247705854}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -820,7 +898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1199040968253252918}
   - component: {fileID: 2251832717750595035}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}

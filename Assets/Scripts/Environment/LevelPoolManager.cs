@@ -64,8 +64,6 @@ public class LevelPoolManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Camera.main.transform.position.x - CurrentEndOfWorld());
-
         if ((Camera.main.transform.position.x - CurrentEndOfWorld()) > -20)
         {
             if(playerBehaviour.chooseDifficulty)

@@ -14,9 +14,6 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D mRigidBody2D;
     private List<Collision2D> mAllCollisions; 
 
-    // V1 jump
-    public float mForceJump;
-
     // V2 jump
     public float mJumpLength;
     public float mJumpHeight;
@@ -135,8 +132,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if (!chooseDifficulty)
             {
-                CheckLanding();
-                Jump();
+                /*CheckLanding();
                 CheckFallingIntoVoid();
 
                 // TODO move to different method
@@ -153,7 +149,7 @@ public class PlayerBehaviour : MonoBehaviour
                         mRigidBody2D.velocity = new Vector2(currentSpeedRun * 1.175f, mRigidBody2D.velocity.y);
                     }
 
-                }
+                }*/
             }
 
             ChooseDifficultyScreen();
@@ -233,39 +229,8 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (!onGround && previouslyOnGround)
         {
-            StartCoroutine(AllowExtraTimeJump());
+            //StartCoroutine(AllowExtraTimeJump());
             StartCoroutine(PreventLandingSoundForShortAirTime());
-        }
-    }
-
-    private void Jump()
-    {
-        float airTime = mJumpLength / currentSpeedRun;
-        float gravity = (float)(mJumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
-        float verticalVelcocity = (float)Math.Sqrt(2.0f * gravity * mJumpHeight);
-
-        mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;
-
-        if (Input.GetButton("Jump"))
-        {
-            if ((onGround || onExtraTimeToJump) && jumpEnabled)
-            {
-                fxPlayer.Play(fxPlayer.jump);
-                StartCoroutine(PreventMultiJump());
-
-                if (!mIsFixedJump)
-                {
-                    //V1 : Imply physics; Depends of 
-                    mRigidBody2D.AddForce(new Vector2(0, mForceJump), ForceMode2D.Impulse);
-                }
-                else
-                {
-                    //V2 : Fix lenght of jump
-                    mRigidBody2D.velocity = new Vector2(mRigidBody2D.velocity.x, verticalVelcocity);
-                }
-                inJump = true;
-                playerAnimator.Play("Jump");
-            }
         }
     }
 
@@ -298,20 +263,6 @@ public class PlayerBehaviour : MonoBehaviour
             return;
         }
         headRenderer.sprite = damaged ? damageSprite : okaySprite;
-    }
-
-    private IEnumerator PreventMultiJump()
-    {
-        jumpEnabled = false;
-        yield return new WaitForSeconds(extraTimeToJump + 0.05f);
-        jumpEnabled = true;
-    }
-
-    private IEnumerator AllowExtraTimeJump()
-    {
-        onExtraTimeToJump = true;
-        yield return new WaitForSeconds(extraTimeToJump);
-        onExtraTimeToJump = false;
     }
 
     private IEnumerator PreventPrematureInteraction()
