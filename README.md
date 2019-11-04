@@ -1,6 +1,14 @@
 # Nuclear Panic
 IDXPO 2019 - Nuclear Panic: An endless runner game, which aims to educate on the basics of radiation.
 
+# Authors
+- Adrián Navarro Pérez.
+- Alexia Dauvergne
+- Christopher William Black.
+- Jesper Jansson.
+- Muhammad Ashar Imtiaz.
+- Samuel Soutullo Sobral.
+
 # Disclaimer
 Here we list the free copyright assets we use for the implementation of our game:
 - 2D Simple Character : Swordsman by Black Hammer: https://assetstore.unity.com/packages/2d/characters/2d-simple-character-swordman-133259
