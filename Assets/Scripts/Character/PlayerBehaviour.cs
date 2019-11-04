@@ -296,7 +296,7 @@ public class PlayerBehaviour : MonoBehaviour
         //Press Ecs to go to main menu
         if (Input.GetButtonDown("Cancel"))
         {
-            SceneManager.LoadScene("MainMenuScene");
+            Application.Quit();
         }
 
         if(Input.GetKeyDown("p"))
