@@ -172,29 +172,6 @@ public class PlayerBehaviour : MonoBehaviour
         StartCoroutine(ReceiveDamage());
     }
 
-    private void CheckLanding()
-    {
-        bool previouslyOnGround = onGround;
-        onGround = mAllCollisions.Exists(col => col.collider.CompareTag("Ground"));
-
-        if (onGround && !previouslyOnGround)
-        {
-            inJump = false;
-            playerAnimator.Play("Run");
-
-            if(playLanding)
-            {
-                fxPlayer.Play(fxPlayer.land);
-            }
-        }
-
-        if (!onGround && previouslyOnGround)
-        {
-            //StartCoroutine(AllowExtraTimeJump());
-            StartCoroutine(PreventLandingSoundForShortAirTime());
-        }
-    }
-
     private void CheckFallingIntoVoid()
     {
         if (gameObject.transform.position.y < -10.0f)
@@ -240,17 +217,4 @@ public class PlayerBehaviour : MonoBehaviour
 
         playLanding = true;
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        mAllCollisions.Add(collision);
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        Collision2D colToRemove = mAllCollisions.Find(c => c.gameObject.Equals(collision.gameObject));
-        mAllCollisions.Remove(colToRemove);
-    }
-
-    private enum Difficulty { Easy, Hard };
 }

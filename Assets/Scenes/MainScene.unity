@@ -2427,21 +2427,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
-        type: 3}
-      propertyPath: difficultyPanel
-      value: 
-      objectReference: {fileID: 1828848926}
-    - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
-        type: 3}
-      propertyPath: score
-      value: 
-      objectReference: {fileID: 2016592757}
-    - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
-        type: 3}
-      propertyPath: highScoreBehaviour
-      value: 
-      objectReference: {fileID: 742513547}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55b2b81955556f45aa84d031469abc9, type: 3}
 --- !u!1001 &468809429
@@ -2930,8 +2915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a606d25e1b27a994c9d5469ee83534b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isConstantSpeed: 1
-  mPlayer: {fileID: 2125905532}
+  player: {fileID: 2125905532}
   mXOffset: -125
   mYOffset: 0.8563
 --- !u!20 &519420031

@@ -33,8 +33,8 @@ public class Score : MonoBehaviour
 
     public int CurrentScore()
     {
-        // TODO if can be simplified
-        if (!player.GetComponent<PlayerBehaviour>().isDead && countScore)
+        // TODO prevent count when dead player
+        if (countScore)
         {
             currentScore = ((int)player.transform.position.x) - scoreSubract > 0 ? ((int)player.transform.position.x) - scoreSubract : 0;
         }

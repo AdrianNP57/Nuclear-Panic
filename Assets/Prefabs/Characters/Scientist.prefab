@@ -96,7 +96,6 @@ GameObject:
   - component: {fileID: 2125905536}
   - component: {fileID: 4105179104802773154}
   - component: {fileID: 2125905540}
-  - component: {fileID: 4790778782607250189}
   - component: {fileID: 8009348826128182466}
   m_Layer: 2
   m_Name: Scientist
@@ -238,51 +237,6 @@ MonoBehaviour:
   glassesRenderer: {fileID: 431860995637977506}
   glassesOn: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
   glassesOff: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
---- !u!114 &4790778782607250189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431860995537063814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebfe0e4506b440f4fa10b4ee79868546, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 431860995699440753}
-  mIsFixedJump: 1
-  mIncreasedRampSpeed: 1
-  mJumpLength: 3
-  mJumpHeight: 2.5
-  mLevels:
-  - {fileID: 3584919194366339524, guid: 7b525aee7c608f7488c9747558d61a76, type: 3}
-  mBufferLevels: []
-  extraTimeToJump: 0.2
-  initialSpeedRun: 3
-  maxSpeedRun: 8
-  speedRunAccelaration: 0.05
-  difficultyPanel: {fileID: 0}
-  currentSpeedRun: 0
-  initialPosition: {x: 0, y: 0, z: 0}
-  playerSprites:
-  - {fileID: 431860995787964942}
-  - {fileID: 431860997247705854}
-  - {fileID: 431860995637977506}
-  - {fileID: 431860995510788267}
-  - {fileID: 431860995597723478}
-  - {fileID: 431860997111004206}
-  - {fileID: 431860996556451240}
-  lowRedValue: 0.3
-  highRedValue: 0.75
-  blinkInterval: 0.1
-  receiveingDamage: 0
-  score: {fileID: 0}
-  highScoreBehaviour: {fileID: 0}
-  headRenderer: {fileID: 431860997247705854}
-  damageSprite: {fileID: 21300000, guid: 9a0c972492c2a1b43b242561909b45a7, type: 3}
-  okaySprite: {fileID: 21300000, guid: 68ed71b5760623347821e9eb2a0763a4, type: 3}
-  deadSprite: {fileID: 21300000, guid: d6391553785699f498f2c5f456511360, type: 3}
 --- !u!114 &8009348826128182466
 MonoBehaviour:
   m_ObjectHideFlags: 0
