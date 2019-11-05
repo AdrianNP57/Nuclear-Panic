@@ -233,10 +233,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c714a2cc9dc3334da871bac633a3b3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allSprites:
+  - {fileID: 431860995787964942}
+  - {fileID: 431860997247705854}
+  - {fileID: 431860995637977506}
+  - {fileID: 431860995510788267}
+  - {fileID: 431860995597723478}
+  - {fileID: 431860997111004206}
+  - {fileID: 431860996556451240}
+  headRenderer: {fileID: 431860997247705854}
+  okaySprite: {fileID: 21300000, guid: 68ed71b5760623347821e9eb2a0763a4, type: 3}
+  damageSprite: {fileID: 21300000, guid: 9a0c972492c2a1b43b242561909b45a7, type: 3}
+  deadSprite: {fileID: 21300000, guid: d6391553785699f498f2c5f456511360, type: 3}
   animator: {fileID: 431860995699440753}
   glassesRenderer: {fileID: 431860995637977506}
   glassesOn: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
   glassesOff: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
+  lowRedValue: 0.3
+  highRedValue: 0.75
+  blinkInterval: 0.1
 --- !u!114 &3771538529217670870
 MonoBehaviour:
   m_ObjectHideFlags: 0
