@@ -44,6 +44,8 @@ public class PlayerRenderController : MonoBehaviour
         EventManager.StartListening("DamageStart", OnDamageStart);
         EventManager.StartListening("DamageEnd", OnDamageEnd);
 
+        EventManager.StartListening("PlayerDied", OnPlayerDied);
+
         StartCoroutine(RedBlink());
         Init();
     }
@@ -109,5 +111,11 @@ public class PlayerRenderController : MonoBehaviour
 
         yield return new WaitForSeconds(blinkInterval);
         StartCoroutine(RedBlink());
+    }
+
+    private void OnPlayerDied()
+    {
+        headRenderer.sprite = deadSprite;
+        animator.Play("Die");
     }
 }
