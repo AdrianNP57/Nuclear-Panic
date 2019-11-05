@@ -119,6 +119,7 @@ Transform:
   m_Children:
   - {fileID: 431860995699440752}
   - {fileID: 1199040968253252918}
+  - {fileID: 4786902578495259766}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -232,23 +233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c932579ebe3603b4c8a946ff724ede27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileMap: {fileID: 0}
-  firstBackground: {fileID: 0}
-  firstBackgroundpartOne: {fileID: 0}
-  secondBackground: {fileID: 0}
-  secondBackgroundpartOne: {fileID: 0}
-  thirdBackground: {fileID: 0}
-  thirdBackgroundpartOne: {fileID: 0}
-  thirdBackgroundpartTwo: {fileID: 0}
-  fourthBackground: {fileID: 0}
-  fourthBackgroundpartOne: {fileID: 0}
-  fourthBackgroundpartTwo: {fileID: 0}
-  darkMaterial: {fileID: 2100000, guid: 54c61594ffb0a8e41a2df031a0f31270, type: 2}
-  haloLight: {fileID: 972413356160980929}
-  levelPool: {fileID: 0}
-  glassesRenderer: {fileID: 431860995637977506}
-  glassesOnSprite: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
-  glassesOffSprite: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
+  glassesLight: {fileID: 2251832717750595035}
+  ambientLight: {fileID: 7717914949737377109}
 --- !u!114 &2125905540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 431860995699440753}
+  glassesRenderer: {fileID: 431860995637977506}
+  glassesOn: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
+  glassesOff: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
 --- !u!114 &4790778782607250189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -289,7 +278,6 @@ MonoBehaviour:
   difficultyPanel: {fileID: 0}
   currentSpeedRun: 0
   initialPosition: {x: 0, y: 0, z: 0}
-  chooseDifficulty: 0
   playerSprites:
   - {fileID: 431860995787964942}
   - {fileID: 431860997247705854}
@@ -899,7 +887,7 @@ GameObject:
   - component: {fileID: 1199040968253252918}
   - component: {fileID: 2251832717750595035}
   m_Layer: 2
-  m_Name: Point Light
+  m_Name: GlassesLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -931,6 +919,97 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 10
+  m_Range: 7
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!1 &3825088379644460609
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4786902578495259766}
+  - component: {fileID: 7717914949737377109}
+  m_Layer: 2
+  m_Name: AmbientLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4786902578495259766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825088379644460609}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4}
+  m_LocalScale: {x: 1.4994, y: 1.4994, z: 1.4994}
+  m_Children: []
+  m_Father: {fileID: 431860995537063810}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!108 &7717914949737377109
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3825088379644460609}
+  m_Enabled: 1
+  serializedVersion: 9
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 5
   m_Range: 7
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

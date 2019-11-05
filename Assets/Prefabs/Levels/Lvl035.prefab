@@ -74,7 +74,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7538825626944478356}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3205,7 +3205,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 54c61594ffb0a8e41a2df031a0f31270, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3689,6 +3689,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (5)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3744,11 +3749,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (5)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &641898972167882310 stripped
@@ -3764,6 +3764,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3819,11 +3824,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (4)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &752073256485571230 stripped
@@ -3839,6 +3839,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3894,11 +3899,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &3131806632388601433 stripped
@@ -3914,6 +3914,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
+        type: 3}
+      propertyPath: m_Name
+      value: MediumRadiation (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f49d83e8b002a8f419139901f6992691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3969,11 +3974,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
-        type: 3}
-      propertyPath: m_Name
-      value: MediumRadiation (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49d83e8b002a8f419139901f6992691, type: 3}
 --- !u!4 &3307828324262194316 stripped
@@ -3989,6 +3989,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4044,11 +4049,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (3)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &2593231901598459981 stripped
@@ -4064,6 +4064,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
+        type: 3}
+      propertyPath: m_Name
+      value: MediumRadiation (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f49d83e8b002a8f419139901f6992691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4119,11 +4124,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
-        type: 3}
-      propertyPath: m_Name
-      value: MediumRadiation (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49d83e8b002a8f419139901f6992691, type: 3}
 --- !u!4 &4019484054346769193 stripped
@@ -4139,6 +4139,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4194,11 +4199,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &5667357805158018653 stripped
@@ -4214,6 +4214,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (7)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4269,11 +4274,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (7)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &4937256826817727053 stripped
@@ -4289,6 +4289,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (10)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4344,11 +4349,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (10)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &5114104444144411428 stripped
@@ -4364,6 +4364,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (6)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4419,11 +4424,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (6)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &6531055451143221692 stripped
@@ -4439,6 +4439,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (8)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4494,11 +4499,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (8)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &6181483314079563200 stripped
@@ -4514,6 +4514,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4569,11 +4574,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657591867137271 stripped
@@ -4589,6 +4589,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4644,11 +4649,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657591801219729 stripped
@@ -4664,6 +4664,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4719,11 +4724,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657591803100886 stripped
@@ -4739,6 +4739,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4794,11 +4799,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657591629031268 stripped
@@ -4814,6 +4814,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4869,11 +4874,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657591488188117 stripped
@@ -4889,6 +4889,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4944,11 +4949,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657592342562671 stripped
@@ -4964,6 +4964,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
+        type: 3}
+      propertyPath: m_Name
+      value: LowRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 8938334445369249039, guid: d788a8dd05bcaf04baa76191369fa0d7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5019,11 +5024,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8938334445369249033, guid: d788a8dd05bcaf04baa76191369fa0d7,
-        type: 3}
-      propertyPath: m_Name
-      value: LowRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d788a8dd05bcaf04baa76191369fa0d7, type: 3}
 --- !u!4 &2496657593466452990 stripped
@@ -5039,6 +5039,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
+        type: 3}
+      propertyPath: m_Name
+      value: MediumRadiation
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f49d83e8b002a8f419139901f6992691,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5094,11 +5099,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f49d83e8b002a8f419139901f6992691,
-        type: 3}
-      propertyPath: m_Name
-      value: MediumRadiation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f49d83e8b002a8f419139901f6992691, type: 3}
 --- !u!4 &6229703112533724512 stripped
@@ -5114,6 +5114,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5169,11 +5174,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (1)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}
 --- !u!4 &6968074298171684589 stripped
@@ -5189,6 +5189,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7900876540730541224}
     m_Modifications:
+    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
+        type: 3}
+      propertyPath: m_Name
+      value: LethalRadiation (9)
+      objectReference: {fileID: 0}
     - target: {fileID: 638076220067761248, guid: f7b36df81c98d754eb20e32952d5f89a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5243,11 +5248,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 638076220067761254, guid: f7b36df81c98d754eb20e32952d5f89a,
-        type: 3}
-      propertyPath: m_Name
-      value: LethalRadiation (9)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7b36df81c98d754eb20e32952d5f89a, type: 3}

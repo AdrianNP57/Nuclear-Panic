@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
         {
             EventManager.TriggerEvent("InputJump");
         }
-        if (Input.GetButton("Glasses"))
+        if (Input.GetButtonDown("Glasses"))
         {
             EventManager.TriggerEvent("InputGlasses");
         }
