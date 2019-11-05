@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2125905536}
   - component: {fileID: 4105179104802773154}
   - component: {fileID: 2125905540}
-  - component: {fileID: 8009348826128182466}
+  - component: {fileID: 3771538529217670870}
   m_Layer: 2
   m_Name: Scientist
   m_TagString: Player
@@ -237,7 +237,7 @@ MonoBehaviour:
   glassesRenderer: {fileID: 431860995637977506}
   glassesOn: {fileID: 21300000, guid: 6dc59e7f322b4dc46acfc93332324a9f, type: 3}
   glassesOff: {fileID: 21300000, guid: 24e53b02896c28443b17495dcdd462ab, type: 3}
---- !u!114 &8009348826128182466
+--- !u!114 &3771538529217670870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 431860995537063814}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c574092613d8254b92505413a52810f, type: 3}
+  m_Script: {fileID: 11500000, guid: bf0644ddaa05f2445878deec35716f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &431860995597723476

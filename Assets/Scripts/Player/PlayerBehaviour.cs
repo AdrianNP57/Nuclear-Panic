@@ -172,13 +172,13 @@ public class PlayerBehaviour : MonoBehaviour
         StartCoroutine(ReceiveDamage());
     }
 
-    private void CheckFallingIntoVoid()
+    /*private void CheckFallingIntoVoid()
     {
         if (gameObject.transform.position.y < -10.0f)
         {
             GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation = true; //Collision with gamma
         }
-    }
+    }*/
 
     private void CheckUIEvents()
     {

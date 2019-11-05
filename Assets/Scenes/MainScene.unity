@@ -2429,6 +2429,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55b2b81955556f45aa84d031469abc9, type: 3}
+--- !u!114 &456431727 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3771538529217670870, guid: b55b2b81955556f45aa84d031469abc9,
+    type: 3}
+  m_PrefabInstance: {fileID: 456431726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2125905532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0644ddaa05f2445878deec35716f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &468809429
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3473,12 +3485,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7711135839532568345, guid: 6671329a77c01d944a684f1353c8144d,
     type: 3}
   m_PrefabInstance: {fileID: 553876642}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &554668427 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6423213535407287325, guid: 5518d8b8d1746cb40b534004ffd64a86,
-    type: 3}
-  m_PrefabInstance: {fileID: 223044789}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &560013273
 PrefabInstance:
@@ -6680,7 +6686,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343185692}
-  - component: {fileID: 1343185693}
+  - component: {fileID: 1343185694}
   m_Layer: 5
   m_Name: RadiationBar
   m_TagString: Untagged
@@ -6711,7 +6717,7 @@ RectTransform:
   m_AnchoredPosition: {x: 15, y: -15}
   m_SizeDelta: {x: 300, y: 30}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &1343185693
+--- !u!114 &1343185694
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6720,20 +6726,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1343185691}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2caa04f9a63559548bbaf7713faf894e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ec3d3a0d6b3ab4468c486ee89f63056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverPanel: {fileID: 1730152568}
-  restartText: {fileID: 346031413}
-  lethalRadiation: 0
-  lowRadiation: 0
-  mediumRadiation: 0
-  lowRadiationOut: 0
-  mediumRadiationOut: 0
-  player: {fileID: 2125905532}
-  background: {fileID: 554668427}
-  musicSource: {fileID: 519420034}
-  radiationDigit: {fileID: 153435168}
+  lowRadiationDamage: 0.1
+  mediumRadiationDamage: 0.4
+  radiationText: {fileID: 153435168}
+  radiationBar: {fileID: 830632254}
+  contact: {fileID: 456431727}
 --- !u!1 &1402804502
 GameObject:
   m_ObjectHideFlags: 0
