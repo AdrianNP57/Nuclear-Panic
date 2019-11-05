@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO test on ramps
 public class InfiniteRunBehaviour : MonoBehaviour
 {
     public float initialSpeedRun;
     public float maxSpeedRun;
     public float speedRunAccelaration;
+
+    [HideInInspector]
+    public float currentSpeed;
 
     private Rigidbody2D rigidbody2D;
 
@@ -20,19 +24,19 @@ public class InfiniteRunBehaviour : MonoBehaviour
 
     void Init()
     {
-        PlayerData.instance.currentSpeed = initialSpeedRun;
+        currentSpeed = initialSpeedRun;
     }
 
     // Update is called once per frame
     void Update()
     {
-        rigidbody2D.velocity = new Vector2(PlayerData.instance.currentSpeed, rigidbody2D.velocity.y);
+        rigidbody2D.velocity = new Vector2(currentSpeed, rigidbody2D.velocity.y);
 
         // TODO fix this
         if (/*!chooseDifficulty && score.CurrentScore() > 100*/ false)
         {
-            PlayerData.instance.currentSpeed += speedRunAccelaration * Time.deltaTime;
-            PlayerData.instance.currentSpeed = PlayerData.instance.currentSpeed < maxSpeedRun ? PlayerData.instance.currentSpeed : maxSpeedRun;
+            currentSpeed += speedRunAccelaration * Time.deltaTime;
+            currentSpeed = currentSpeed < maxSpeedRun ? currentSpeed : maxSpeedRun;
         }
     }
 }

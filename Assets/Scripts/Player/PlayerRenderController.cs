@@ -6,14 +6,17 @@ public class PlayerRenderController : MonoBehaviour
 {
     // Animations
     public Animator animator;
+    private InfiniteRunBehaviour infiniteRun;
 
     // Glasses sprite
     public SpriteRenderer glassesRenderer;
     public Sprite glassesOn;
     public Sprite glassesOff;
 
-    void Start()
+    void Awake()
     {
+        infiniteRun = GetComponent<InfiniteRunBehaviour>();
+
         animator.Play("Run");
 
         EventManager.StartListening("Jump", OnJump);
@@ -25,7 +28,7 @@ public class PlayerRenderController : MonoBehaviour
 
     private void Update()
     {
-        animator.speed = PlayerData.instance.currentSpeed / 3;
+        animator.speed = infiniteRun.currentSpeed / 3;
     }
 
     private void OnJump()

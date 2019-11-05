@@ -11,19 +11,21 @@ public class JumpBehaviour : MonoBehaviour
 
     private Rigidbody2D rigidbody2D;
     private PlayerController playerController;
+    private InfiniteRunBehaviour inifinteRun;
 
     // Start is called before the first frame update
     void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
+        inifinteRun = GetComponent<InfiniteRunBehaviour>();
 
         EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
     }
 
     private void Update()
     {
-        float airTime = jumpLength / PlayerData.instance.currentSpeed;
+        float airTime = jumpLength / inifinteRun.currentSpeed;
 
         rigidbody2D.gravityScale = (float)(jumpHeight / Math.Pow(airTime / 2.0f, 2.0f)); ;
     }

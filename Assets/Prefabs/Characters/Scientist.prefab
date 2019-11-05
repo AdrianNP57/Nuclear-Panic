@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 431860995537063811}
   - component: {fileID: 431860995537063808}
   - component: {fileID: 2125905537}
-  - component: {fileID: 2125905541}
   - component: {fileID: 2125905534}
   - component: {fileID: 2125905536}
   - component: {fileID: 4105179104802773154}
@@ -179,19 +178,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   grounded: 0
---- !u!114 &2125905541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431860995537063814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c413f2e7deec627428c463cc4a04ac01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentSpeed: 0
 --- !u!114 &2125905534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,6 +193,7 @@ MonoBehaviour:
   initialSpeedRun: 3
   maxSpeedRun: 8
   speedRunAccelaration: 0.05
+  currentSpeed: 0
 --- !u!114 &2125905536
 MonoBehaviour:
   m_ObjectHideFlags: 0
