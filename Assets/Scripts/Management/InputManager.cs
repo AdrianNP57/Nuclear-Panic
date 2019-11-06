@@ -25,5 +25,10 @@ public class InputManager : MonoBehaviour
         {
             EventManager.TriggerEvent("InputGlasses");
         }
+
+        if(Input.GetButtonUp("Debug"))
+        {
+            EventManager.TriggerEvent("InputDebug");
+        }
     }
 }

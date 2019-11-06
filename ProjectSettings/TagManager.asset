@@ -8,6 +8,7 @@ TagManager:
   - MediumRadiation
   - LowRadiation
   - LethalRadiation
+  - UI
   layers:
   - Default
   - TransparentFX

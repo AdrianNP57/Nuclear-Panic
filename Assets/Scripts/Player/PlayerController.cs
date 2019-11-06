@@ -31,15 +31,15 @@ public class PlayerController : MonoBehaviour
         if(leftHit.collider != null || rightHit.collider != null)
         {
             grounded = true;
-            Debug.Log("Grounded");
+            DebugPanelBehaviour.Log("State", "Grounded");
         }
         else
         {
-            Debug.Log("Air");
             grounded = false;
+            DebugPanelBehaviour.Log("State", "On Air");
         }
 
-        if(!prevouslyGrounded && grounded)
+        if (!prevouslyGrounded && grounded)
         {
             EventManager.TriggerEvent("Land");
         }
