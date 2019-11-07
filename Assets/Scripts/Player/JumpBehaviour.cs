@@ -13,6 +13,9 @@ public class JumpBehaviour : MonoBehaviour
     private PlayerController playerController;
     private InfiniteRunBehaviour inifinteRun;
 
+    [HideInInspector]
+    public bool onJump;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,13 +24,16 @@ public class JumpBehaviour : MonoBehaviour
         inifinteRun = GetComponent<InfiniteRunBehaviour>();
 
         EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
+        EventManager.StartListening("Land", OnLand);
     }
 
     private void Update()
     {
         float airTime = jumpLength / inifinteRun.currentSpeed;
 
-        rigidbody2D.gravityScale = (float)(jumpHeight / Math.Pow(airTime / 2.0f, 2.0f)); ;
+        rigidbody2D.gravityScale = (float)(jumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
+
+        DebugPanelBehaviour.Log("On jump", onJump.ToString());
     }
 
     void Jump()
@@ -39,6 +45,7 @@ public class JumpBehaviour : MonoBehaviour
         {
             EventManager.TriggerEvent("Jump");
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, verticalVelcocity);
+            onJump = true;
         }
     }
 
@@ -59,5 +66,10 @@ public class JumpBehaviour : MonoBehaviour
     private void OnDifficultyChosen()
     {
         EventManager.StartListening("InputJump", Jump);
+    }
+
+    private void OnLand()
+    {
+        onJump = false;
     }
 }

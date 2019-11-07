@@ -30,17 +30,22 @@ public class CameraFollowingPlayer : MonoBehaviour
     }
 
     void Update() {
-        if (player != null) {
-            float cameraY = player.transform.position.y + mYOffset >= 0 ? player.transform.position.y + mYOffset : 0;
+        float cameraY = player.transform.position.y + mYOffset >= 0 ? player.transform.position.y + mYOffset : 0;
 
-            gameObject.transform.position = new Vector3(gameObject.transform.position.x, cameraY, gameObject.transform.position.z);
-            gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(infiniteRun.currentSpeed, 0);
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, cameraY, gameObject.transform.position.z);
+        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(infiniteRun.currentSpeed, 0);
 
-            if (gameObject.GetComponent<Camera>().WorldToScreenPoint(player.transform.position).x <= 80 && !deathNotified)
-            {
-                deathNotified = true;
-                EventManager.TriggerEvent("PlayerDied");
-            }
+        if (DistanceToLethal() <= 0 && !deathNotified)
+        {
+            deathNotified = true;
+            EventManager.TriggerEvent("PlayerDied");
         }
+
+        DebugPanelBehaviour.Log("Distance to chasing alpha", DistanceToLethal().ToString());
 	}
+
+    private float DistanceToLethal()
+    {
+        return gameObject.GetComponent<Camera>().WorldToScreenPoint(player.transform.position).x - 80;
+    }
 }

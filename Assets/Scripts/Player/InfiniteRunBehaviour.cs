@@ -8,17 +8,21 @@ public class InfiniteRunBehaviour : MonoBehaviour
     public float initialSpeedRun;
     public float maxSpeedRun;
     public float speedRunAccelaration;
+    public float onRampMultiplier;
 
     [HideInInspector]
     public float currentSpeed;
     private bool isAlive;
 
-    private Rigidbody2D rigidbody2D;
+    private Rigidbody2D rigidbody;
+    private PlayerController controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
+        controller = GetComponent<PlayerController>();
+
         EventManager.StartListening("PlayerDied", OnPlayerDied);
 
         Init();
@@ -33,14 +37,17 @@ public class InfiniteRunBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigidbody2D.velocity = new Vector2(isAlive? currentSpeed : 0, rigidbody2D.velocity.y);
+        float actualSpeed = controller.onRamp ? currentSpeed * onRampMultiplier : currentSpeed;
+        rigidbody.velocity = new Vector2(isAlive? actualSpeed : 0, rigidbody.velocity.y);
 
         // TODO fix this
-        if (/*!chooseDifficulty && score.CurrentScore() > 100*/ isAlive)
+        if (/*!chooseDifficulty && score.CurrentScore() > 100*/ false)
         {
             currentSpeed += speedRunAccelaration * Time.deltaTime;
             currentSpeed = currentSpeed < maxSpeedRun ? currentSpeed : maxSpeedRun;
         }
+
+        DebugPanelBehaviour.Log("Speed", currentSpeed.ToString());
     }
 
     private void OnPlayerDied()

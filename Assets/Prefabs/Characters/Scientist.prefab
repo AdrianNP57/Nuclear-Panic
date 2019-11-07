@@ -92,11 +92,12 @@ GameObject:
   - component: {fileID: 431860995537063811}
   - component: {fileID: 431860995537063808}
   - component: {fileID: 2125905537}
-  - component: {fileID: 2125905534}
+  - component: {fileID: 2125905533}
   - component: {fileID: 2125905536}
+  - component: {fileID: 2125905534}
   - component: {fileID: 4105179104802773154}
-  - component: {fileID: 2125905540}
   - component: {fileID: 3771538529217670870}
+  - component: {fileID: 2125905540}
   m_Layer: 2
   m_Name: Scientist
   m_TagString: Player
@@ -171,12 +172,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   raySpacing: 0.3
-  rayOffsetY: -0.2
   rayLength: 0.3
+  rayOffsetY: -0.2
   rayMask:
     serializedVersion: 2
     m_Bits: 1
   grounded: 0
+  onRamp: 0
+  onRampEdge: 0
+--- !u!114 &2125905533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d266eaafbae3808408b1941e5f55efa4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2125905536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1a32a3519258f445960285a249f62f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpLength: 3
+  jumpHeight: 2.5
+  onJump: 0
 --- !u!114 &2125905534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,21 +222,8 @@ MonoBehaviour:
   initialSpeedRun: 3
   maxSpeedRun: 8
   speedRunAccelaration: 0.05
+  onRampMultiplier: 1.4
   currentSpeed: 0
---- !u!114 &2125905536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431860995537063814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1a32a3519258f445960285a249f62f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpLength: 3
-  jumpHeight: 2.5
 --- !u!114 &4105179104802773154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +238,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassesLight: {fileID: 2251832717750595035}
   ambientLight: {fileID: 7717914949737377109}
+--- !u!114 &3771538529217670870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431860995537063814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf0644ddaa05f2445878deec35716f61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2125905540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,18 +281,6 @@ MonoBehaviour:
   lowRedValue: 0.3
   highRedValue: 0.75
   blinkInterval: 0.1
---- !u!114 &3771538529217670870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 431860995537063814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0644ddaa05f2445878deec35716f61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &431860995597723476
 GameObject:
   m_ObjectHideFlags: 0
