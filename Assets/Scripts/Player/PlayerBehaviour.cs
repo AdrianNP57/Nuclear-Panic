@@ -73,7 +73,6 @@ public class PlayerBehaviour : MonoBehaviour
         fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
         musicManager = Camera.main.GetComponent<MusicManager>();
 
-        StartCoroutine(ReceiveDamage());
         Init();
     }
 
@@ -89,12 +88,10 @@ public class PlayerBehaviour : MonoBehaviour
         isDead = false;
         receiveingDamage = false;
         fxPlayer.SetEnabled(true);
-        musicManager.InitMusic();
+        //musicManager.InitMusic();
 
         difficultyPanel.SetActive(true);
         StartCoroutine(PreventPrematureInteraction());
-
-        SetSpriteDamaged(false);
 
         playerAnimator.Play("Run");
         mAllCollisions.Clear();
@@ -146,30 +143,8 @@ public class PlayerBehaviour : MonoBehaviour
                 }
             }*/
 
-            CheckUIEvents();
+            //CheckUIEvents();
         }
-    }
-
-    private IEnumerator ReceiveDamage()
-    {
-        float antiRedValue = isBlinkingHigh ? highRedValue : lowRedValue;
-        isBlinkingHigh = !isBlinkingHigh;
-
-        foreach (SpriteRenderer sprite in playerSprites)
-        {
-            if (receiveingDamage)
-            {
-                sprite.color = new Color(1, 1 - antiRedValue, 1 - antiRedValue);
-            }
-            else
-            {
-                sprite.color = Color.white;
-            }
-        }
-        SetSpriteDamaged(receiveingDamage);
-
-        yield return new WaitForSeconds(blinkInterval);
-        StartCoroutine(ReceiveDamage());
     }
 
     /*private void CheckFallingIntoVoid()
@@ -179,29 +154,6 @@ public class PlayerBehaviour : MonoBehaviour
             GameObject.Find("RadiationBar").GetComponent<RadiationBar>().lethalRadiation = true; //Collision with gamma
         }
     }*/
-
-    private void CheckUIEvents()
-    {
-        //Press Ecs to go to main menu
-        if (Input.GetButtonDown("Cancel"))
-        {
-            SceneManager.LoadScene("MainMenuScene");
-        }
-
-        if(Input.GetKeyDown("p"))
-        {
-            Time.timeScale = 0;
-        }
-    }
-
-    public void SetSpriteDamaged(bool damaged)
-    {
-        if (isDead)
-        {
-            return;
-        }
-        headRenderer.sprite = damaged ? damageSprite : okaySprite;
-    }
 
     private IEnumerator PreventPrematureInteraction()
     {

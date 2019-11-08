@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO prevent premature interaction
 public class DifficultyScreenBehaviour : MonoBehaviour
 {
 
