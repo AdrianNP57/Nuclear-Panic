@@ -40,7 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
     [HideInInspector]
     public Vector3 initialPosition;
 
-    private AudioEffectPlayer fxPlayer;
+    private AudioEffectManager fxPlayer;
     private MusicManager musicManager;
 
     private bool allowInteraction;
@@ -70,7 +70,7 @@ public class PlayerBehaviour : MonoBehaviour
         mAllCollisions = new List<Collision2D>();
         mBufferLevels = new List<GameObject>();
         initialPosition = transform.position;
-        fxPlayer = Camera.main.GetComponent<AudioEffectPlayer>();
+        fxPlayer = Camera.main.GetComponent<AudioEffectManager>();
         musicManager = Camera.main.GetComponent<MusicManager>();
 
         Init();
@@ -87,7 +87,7 @@ public class PlayerBehaviour : MonoBehaviour
         inJump = false;
         isDead = false;
         receiveingDamage = false;
-        fxPlayer.SetEnabled(true);
+        //fxPlayer.SetEnabled(true);
         //musicManager.InitMusic();
 
         difficultyPanel.SetActive(true);
@@ -108,7 +108,7 @@ public class PlayerBehaviour : MonoBehaviour
         headRenderer.sprite = deadSprite;
         playerAnimator.Play("Die");
         mRigidBody2D.velocity = Vector2.zero;
-        fxPlayer.SetEnabled(false);
+        //fxPlayer.SetEnabled(false);
     }
 
     // Update is called once per frame

@@ -7,10 +7,30 @@ public class RadiationContactBehaviour : MonoBehaviour
     private int lowRadiationCount;
     private int mediumRadiationCount;
 
+    private bool previouslyOnLow;
+    private bool previouslyOnMedium;
+
     // Start is called before the first frame update
     void Awake()
     {
         lowRadiationCount = mediumRadiationCount = 0;
+    }
+
+    void Update() {
+        if(previouslyOnLow != IsOnLowRadiation())
+        {
+            EventManager.TriggerEvent(previouslyOnLow? "LowRadiationExit" : "LowRadiationEnter");
+        }
+
+        if(previouslyOnMedium != IsOnMediumRadiation())
+        {
+            EventManager.TriggerEvent(previouslyOnMedium? "MediumRadiationExit" : "MediumRadiationEnter");
+        }
+
+        previouslyOnLow = IsOnLowRadiation();
+        previouslyOnMedium = IsOnMediumRadiation();
+
+        ShowLog();
     }
 
     public bool IsOnLowRadiation()
@@ -21,6 +41,25 @@ public class RadiationContactBehaviour : MonoBehaviour
     public bool IsOnMediumRadiation()
     {
         return mediumRadiationCount > 0;
+    }
+
+    private void ShowLog()
+    {
+        if(IsOnLowRadiation() && IsOnMediumRadiation())
+        {
+            DebugPanelBehaviour.Log("Radiation", "Low & Medium");
+        }
+        else if (IsOnLowRadiation())
+        {
+            DebugPanelBehaviour.Log("Radiation", "Low");
+        }
+        else if (IsOnMediumRadiation())
+        {
+            DebugPanelBehaviour.Log("Radiation", "Medium");
+        } else
+        {
+            DebugPanelBehaviour.Log("Radiation", "None");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,6 +83,4 @@ public class RadiationContactBehaviour : MonoBehaviour
             EventManager.TriggerEvent("DamageEnd");
         }
     }
-
-    void Update() { }
 }

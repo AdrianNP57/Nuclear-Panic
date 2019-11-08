@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO jump is getting triggerd more than once per actual jump
 // TODO implement coyote time
 public class JumpBehaviour : MonoBehaviour
 {

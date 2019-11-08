@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO fix this
 public class OnRampBehaviour : MonoBehaviour
 {
     private PlayerController controller;
@@ -28,13 +29,18 @@ public class OnRampBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!jumpBehaviour.onJump)
+        /*if (!jumpBehaviour.onJump)
         {
             if((previouslyOnRamp && !controller.onRamp) || controller.onRampEdge)
 
             rigidbody.velocity *= new Vector2(1, -1);
         }
 
-        previouslyOnRamp = controller.onRamp;
+        previouslyOnRamp = controller.onRamp;*/
+
+        if(!jumpBehaviour.onJump && rigidbody.velocity.y > 0)
+        {
+            rigidbody.velocity *= new Vector2(1, 0);
+        }
     }
 }
