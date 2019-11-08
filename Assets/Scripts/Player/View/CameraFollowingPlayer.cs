@@ -10,15 +10,19 @@ public class CameraFollowingPlayer : MonoBehaviour
     public float mXOffset;
     public float mYOffset;
 
-    private InfiniteRunBehaviour infiniteRun;
     private Vector3 initialPosition;
-    private bool deathNotified;
+
+    private PlayerController playerController;
+    private InfiniteRunBehaviour infiniteRun;
 
     void Awake() {
         float unitsXOffset = Camera.main.ScreenToWorldPoint(new Vector3(mXOffset, 0, 0)).x;
-
-        infiniteRun = player.GetComponent<InfiniteRunBehaviour>();
         initialPosition = new Vector3(player.transform.position.x - unitsXOffset, mYOffset, -10);
+
+        playerController = player.GetComponent<PlayerController>();
+        infiniteRun = player.GetComponent<InfiniteRunBehaviour>();
+
+        EventManager.StartListening("GameRestart", Init);
 
         Init();
     }
@@ -26,7 +30,6 @@ public class CameraFollowingPlayer : MonoBehaviour
     public void Init()
     {
         gameObject.transform.position = initialPosition;
-        deathNotified = false;
     }
 
     void Update() {
@@ -35,9 +38,8 @@ public class CameraFollowingPlayer : MonoBehaviour
         gameObject.transform.position = new Vector3(gameObject.transform.position.x, cameraY, gameObject.transform.position.z);
         gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(infiniteRun.currentSpeed, 0);
 
-        if (DistanceToLethal() <= 0 && !deathNotified)
+        if (DistanceToLethal() <= 0 && playerController.isAlive)
         {
-            deathNotified = true;
             EventManager.TriggerEvent("PlayerDied");
         }
 

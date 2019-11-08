@@ -4,26 +4,31 @@ using UnityEngine;
 using TMPro;
 using System;
 
-public class Score : MonoBehaviour
+public class ScoreBehaviour : MonoBehaviour
 {
     public GameObject player;
     public GameObject levelPool;
     public TextMeshProUGUI scoreText;
 
     private int scoreSubract;
-    private int currentScore = 0;
+    private int currentScore;
 
     private bool countScore;
 
     void Awake()
     {
         EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
+        EventManager.StartListening("PlayerDied", OnPlayerDied);
+        EventManager.StartListening("GameRestart", Init);
+
         Init();
     }
 
     void Init()
     {
         countScore = false;
+        currentScore = 0;
+        scoreSubract = 0;
     }
 
     void Update()
@@ -33,7 +38,6 @@ public class Score : MonoBehaviour
 
     public int CurrentScore()
     {
-        // TODO prevent count when dead player
         if (countScore)
         {
             currentScore = ((int)player.transform.position.x) - scoreSubract > 0 ? ((int)player.transform.position.x) - scoreSubract : 0;
@@ -46,5 +50,10 @@ public class Score : MonoBehaviour
     {
         countScore = true;
         scoreSubract = levelPool.GetComponent<LevelPoolManager>().CurrentEndOfWorld();
+    }
+
+    private void OnPlayerDied()
+    {
+        countScore = false;
     }
 }

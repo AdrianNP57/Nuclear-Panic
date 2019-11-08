@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO test what happens when dying in radiation
 public class AudioEffectManager : MonoBehaviour
 {
     public AudioClip jump;

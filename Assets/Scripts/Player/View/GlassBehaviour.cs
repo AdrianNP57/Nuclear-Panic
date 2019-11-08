@@ -15,6 +15,8 @@ public class GlassBehaviour : MonoBehaviour
     {
         EventManager.StartListening("EasyDifficultyChosen", SetEasyMode);
         EventManager.StartListening("HardDifficultyChosen", SetHardMode);
+        EventManager.StartListening("PlayerDied", OnPlayerDied);
+        EventManager.StartListening("GameRestart", Init);
 
         Init();
     }
@@ -67,6 +69,16 @@ public class GlassBehaviour : MonoBehaviour
         SetDifficulty(false);
     }
 
+    private void OnPlayerDied()
+    {
+        if(glassesOn)
+        {
+            SwapGlasses();
+        }
+
+        EventManager.StopListening("InputGlasses", SwapGlasses);
+    }
+
     private void ShowRadiation()
     {
         Camera.main.cullingMask |= 1 << LayerMask.NameToLayer("Radiation");
@@ -77,8 +89,5 @@ public class GlassBehaviour : MonoBehaviour
         Camera.main.cullingMask &= ~(1 << LayerMask.NameToLayer("Radiation"));
     }
 
-    private void Update()
-    {
-        
-    }
+    private void Update() { }
 }

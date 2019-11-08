@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HighScoreBehaviour : MonoBehaviour
 {
-    public Score scoreBehaviour;
+    public ScoreBehaviour scoreBehaviour;
     private TextMeshProUGUI text;
     private static int highScore = -1;
 

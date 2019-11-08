@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Maybe try to continue generating levels after died
 public class LevelPoolManager : MonoBehaviour
 {
     public GameObject plainLevelPrefab;
@@ -29,7 +30,9 @@ public class LevelPoolManager : MonoBehaviour
         }
 
         transform.DetachChildren();
+
         EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
+        EventManager.StartListening("GameRestart", Init);
 
         Init();
     }

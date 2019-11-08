@@ -18,6 +18,8 @@ public class OnRampBehaviour : MonoBehaviour
         jumpBehaviour = GetComponent<JumpBehaviour>();
         rigidbody = GetComponent<Rigidbody2D>();
 
+        EventManager.StartListening("GameRestart", Init);
+
         Init();
     }
 

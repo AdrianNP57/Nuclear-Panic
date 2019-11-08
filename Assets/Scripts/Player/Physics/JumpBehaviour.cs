@@ -12,7 +12,7 @@ public class JumpBehaviour : MonoBehaviour
 
     private Rigidbody2D rigidbody2D;
     private PlayerController playerController;
-    private InfiniteRunBehaviour inifinteRun;
+    private InfiniteRunBehaviour infiniteRun;
 
     [HideInInspector]
     public bool onJump;
@@ -22,15 +22,24 @@ public class JumpBehaviour : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerController = GetComponent<PlayerController>();
-        inifinteRun = GetComponent<InfiniteRunBehaviour>();
+        infiniteRun = GetComponent<InfiniteRunBehaviour>();
 
         EventManager.StartListening("DifficultyChosen", OnDifficultyChosen);
         EventManager.StartListening("Land", OnLand);
+        EventManager.StartListening("PlayerDied", OnPlayerDied);
+        EventManager.StartListening("GameRestart", Init);
+
+        Init();
+    }
+
+    private void Init()
+    {
+        onJump = false;
     }
 
     private void Update()
     {
-        float airTime = jumpLength / inifinteRun.currentSpeed;
+        float airTime = jumpLength / infiniteRun.currentSpeed;
 
         rigidbody2D.gravityScale = (float)(jumpHeight / Math.Pow(airTime / 2.0f, 2.0f));
 
@@ -39,30 +48,15 @@ public class JumpBehaviour : MonoBehaviour
 
     void Jump()
     {
-        float verticalVelcocity = (float)Math.Sqrt(2.0f * rigidbody2D.gravityScale * jumpHeight);
+        float verticalVelocity = (float)Math.Sqrt(2.0f * rigidbody2D.gravityScale * jumpHeight);
 
-        // TODO fix
-        if (/*(onGround || onExtraTimeToJump) && jumpEnabled*/ playerController.grounded)
+        if (playerController.grounded)
         {
             EventManager.TriggerEvent("Jump");
-            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, verticalVelcocity);
+            rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, verticalVelocity);
             onJump = true;
         }
     }
-
-    /*private IEnumerator PreventMultiJump()
-    {
-        jumpEnabled = false;
-        yield return new WaitForSeconds(extraTimeToJump + 0.05f);
-        jumpEnabled = true;
-    }
-
-    private IEnumerator AllowExtraTimeJump()
-    {
-        onExtraTimeToJump = true;
-        yield return new WaitForSeconds(extraTimeToJump);
-        onExtraTimeToJump = false;
-    }*/
 
     private void OnDifficultyChosen()
     {
@@ -72,5 +66,10 @@ public class JumpBehaviour : MonoBehaviour
     private void OnLand()
     {
         onJump = false;
+    }
+
+    private void OnPlayerDied()
+    {
+        EventManager.StopListening("InputJump", Jump);
     }
 }

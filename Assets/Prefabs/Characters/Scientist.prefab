@@ -223,7 +223,9 @@ MonoBehaviour:
   maxSpeedRun: 8
   speedRunAccelaration: 0.05
   onRampMultiplier: 1.4
+  score: {fileID: 0}
   currentSpeed: 0
+  isAlive: 0
 --- !u!114 &4105179104802773154
 MonoBehaviour:
   m_ObjectHideFlags: 0

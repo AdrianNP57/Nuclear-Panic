@@ -12,17 +12,27 @@ public class PlayerController : MonoBehaviour
 
     [HideInInspector]
     public bool grounded;
-
     [HideInInspector]
     public bool onRamp;
     [HideInInspector]
     public bool onRampEdge;
 
+    [HideInInspector]
+    public bool isAlive;
 
     // Start is called before the first frame update
     void Awake()
     {
-        grounded = false;
+        EventManager.StartListening("PlayerDied", OnPlayerDied);
+        EventManager.StartListening("GameRestart", Init);
+
+        Init();
+    }
+
+    private void Init()
+    {
+        grounded = onRamp = onRampEdge = false;
+        isAlive = true;
     }
 
     private void Update()
@@ -56,7 +66,7 @@ public class PlayerController : MonoBehaviour
         bool prevouslyGrounded = grounded;
         grounded = leftHit.collider != null || rightHit.collider != null;
 
-        if (!prevouslyGrounded && grounded)
+        if (!prevouslyGrounded && grounded && isAlive)
         {
             EventManager.TriggerEvent("Land");
         }
@@ -92,5 +102,10 @@ public class PlayerController : MonoBehaviour
         }
 
         return false;
+    }
+
+    private void OnPlayerDied()
+    {
+        isAlive = false;
     }
 }

@@ -17,10 +17,13 @@ public class ParallaxEffect : MonoBehaviour
     {
         initialPos = transform.position.x;
         initialPosY = transform.position.y;
+
+        EventManager.StartListening("GameRestart", Init);
+
         Init();
     }
 
-    public void Init()
+    private void Init()
     {
         currentPos = initialPos - 10;
         currentPosY = initialPosY - 1;

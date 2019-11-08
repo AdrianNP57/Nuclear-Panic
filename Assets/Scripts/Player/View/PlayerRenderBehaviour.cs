@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRenderController : MonoBehaviour
+public class PlayerRenderBehaviour : MonoBehaviour
 {
     // All sprites
     public SpriteRenderer[] allSprites;
@@ -33,18 +33,19 @@ public class PlayerRenderController : MonoBehaviour
     {
         infiniteRun = GetComponent<InfiniteRunBehaviour>();
 
-        animator.Play("Run");
-
         EventManager.StartListening("Jump", OnJump);
         EventManager.StartListening("Land", OnLand);
 
         EventManager.StartListening("GlassesOn", OnGlassesOn);
         EventManager.StartListening("GlassesOff", OnGlassesOff);
 
-        EventManager.StartListening("DamageStart", OnDamageStart);
-        EventManager.StartListening("DamageEnd", OnDamageEnd);
+        EventManager.StartListening("LowRadiationEnter", OnDamageStart);
+        EventManager.StartListening("MediumRadiationEnter", OnDamageStart);
+        EventManager.StartListening("LowRadiationExit", OnDamageEnd);
+        EventManager.StartListening("MediumRadiationExit", OnDamageEnd);
 
         EventManager.StartListening("PlayerDied", OnPlayerDied);
+        EventManager.StartListening("GameRestart", Init);
 
         StartCoroutine(RedBlink());
         Init();
@@ -52,6 +53,8 @@ public class PlayerRenderController : MonoBehaviour
 
     private void Init()
     {
+        animator.Play("Run");
+        headRenderer.sprite = okaySprite;
         isBlinkingHigh = receiveingDamage = false;
     }
 

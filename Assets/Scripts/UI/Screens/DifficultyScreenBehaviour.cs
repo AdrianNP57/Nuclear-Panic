@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// TODO prevent premature interaction
 public class DifficultyScreenBehaviour : MonoBehaviour
 {
 
     // Start is called before the first frame update
     void Awake()
     {
+        EventManager.StartListening("GameRestart", Init);
         Init();
     }
 
     void Init()
     {
+        gameObject.SetActive(true);
+
         EventManager.StartListening("InputGlassesUp", OnEasyChosen);
         EventManager.StartListening("InputJumpUp", OnHardChosen);
     }

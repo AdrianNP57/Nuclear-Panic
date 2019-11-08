@@ -22,6 +22,8 @@ public class MusicManager : MonoBehaviour
     void Awake()
     {
         EventManager.StartListening("DifficultyChosen", StartTransition);
+        EventManager.StartListening("GameRestart", Init);
+
         Init();
     }
 

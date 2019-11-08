@@ -10,8 +10,8 @@ public class RadiationOscillationBehaviour : MonoBehaviour
     private float mOriginalScaleX;
     private bool mJustSwichValue = false;
     
-    // Start
-    void Start()
+    // Awake
+    void Awake()
     {
         mOriginalScaleX = gameObject.transform.localScale.x;
     }
