@@ -7,14 +7,14 @@ public class HighScoreBehaviour : MonoBehaviour
 {
     public Score scoreBehaviour;
     private TextMeshProUGUI text;
-    private static int highScore = -1;
+    private static int highScore;
 
     public bool hardMode = false;
 
     void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
-        highScore = PlayerPrefs.GetInt("HighScore", -1);
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
         text.text = highScore.ToString("0");
     }
 

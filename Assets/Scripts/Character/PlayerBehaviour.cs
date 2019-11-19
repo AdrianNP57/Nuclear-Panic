@@ -170,7 +170,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (chooseDifficulty)
         {
-            if(Input.GetButtonUp("Jump"))
+            if(UniversalInput.GetButtonUp("Jump"))
             {
                 Debug.Log("Hard");
                 chooseDifficulty = false;
@@ -181,7 +181,7 @@ public class PlayerBehaviour : MonoBehaviour
 
                 highScoreBehaviour.hardMode = true;
             }
-            else if(Input.GetButtonUp("Glasses"))
+            else if(UniversalInput.GetButtonUp("Glasses"))
             {
                 Debug.Log("Easy");
                 chooseDifficulty = false;
@@ -261,7 +261,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         mRigidBody2D.gravityScale = gravity / -Physics.gravity.y;
 
-        if (Input.GetButton("Jump"))
+        if (UniversalInput.GetButton("Jump"))
         {
             if ((onGround || onExtraTimeToJump) && jumpEnabled)
             {
@@ -295,7 +295,7 @@ public class PlayerBehaviour : MonoBehaviour
     private void CheckUIEvents()
     {
         //Press Ecs to go to main menu
-        if (Input.GetButtonDown("Cancel"))
+        if (UniversalInput.GetButtonDown("Cancel"))
         {
             Application.Quit();
         }

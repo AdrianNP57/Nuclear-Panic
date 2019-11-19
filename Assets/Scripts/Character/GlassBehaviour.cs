@@ -63,12 +63,12 @@ public class GlassBehaviour : MonoBehaviour
     {
         if(!GetComponent<PlayerBehaviour>().chooseDifficulty && !isEasyMode)
         {
-            if (Input.GetButtonDown("Glasses") && !glassesOn)
+            if (UniversalInput.GetButtonDown("Glasses") && !glassesOn)
             {
                 Debug.Log("Glasses on");
                 glassesOn = true;
             }
-            else if (Input.GetButtonDown("Glasses") && glassesOn)
+            else if (UniversalInput.GetButtonDown("Glasses") && glassesOn)
             {
                 Debug.Log("Glasses off");
                 glassesOn = false;

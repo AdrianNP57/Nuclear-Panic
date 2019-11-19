@@ -63,7 +63,7 @@ public class RadiationBar : MonoBehaviour
         {
             ChangeGameState(false);
 
-            if(Input.GetButtonDown("Jump") && canRestart)
+            if(UniversalInput.GetButtonDown("Jump") && canRestart)
             {
                 RestartScene();
             }
