@@ -521,8 +521,9 @@ GameObject:
   - component: {fileID: 6758293413480461066}
   - component: {fileID: 4311597587972138860}
   - component: {fileID: 1875502889894406808}
+  - component: {fileID: 7499503993508486153}
   m_Layer: 0
-  m_Name: JumpSprite (1)
+  m_Name: GlassesSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -607,6 +608,18 @@ MonoBehaviour:
   platformSprites:
   - platform: 11
     sprite: {fileID: 21300000, guid: 46516b7c887ed0045ab30d7c5170e231, type: 3}
+--- !u!114 &7499503993508486153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2431274262444138025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db87f95653f7d984fa6f1d4b471d2a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2484431330959477228
 GameObject:
   m_ObjectHideFlags: 0

@@ -36614,6 +36614,7 @@ GameObject:
   - component: {fileID: 1813509037}
   - component: {fileID: 1813509040}
   - component: {fileID: 1813509039}
+  - component: {fileID: 1813509038}
   m_Layer: 5
   m_Name: HighScoreLabel
   m_TagString: Untagged
@@ -36641,6 +36642,18 @@ RectTransform:
   m_AnchoredPosition: {x: -350, y: -35}
   m_SizeDelta: {x: 177, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1813509038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813509036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db87f95653f7d984fa6f1d4b471d2a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1813509039
 MonoBehaviour:
   m_ObjectHideFlags: 0

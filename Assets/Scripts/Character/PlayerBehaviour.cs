@@ -191,6 +191,7 @@ public class PlayerBehaviour : MonoBehaviour
                 musicManager.StartTransition();
 
                 highScoreBehaviour.hardMode = false;
+                HideOnEasy.hidden = true;
             }
         }
     }
