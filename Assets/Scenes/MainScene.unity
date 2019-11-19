@@ -10124,6 +10124,11 @@ PrefabInstance:
       propertyPath: score
       value: 
       objectReference: {fileID: 2016592757}
+    - target: {fileID: 4790778782607250189, guid: b55b2b81955556f45aa84d031469abc9,
+        type: 3}
+      propertyPath: highScoreBehaviour
+      value: 
+      objectReference: {fileID: 742513547}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b55b2b81955556f45aa84d031469abc9, type: 3}
 --- !u!1001 &468809429

@@ -14,6 +14,8 @@ public class HighScoreBehaviour : MonoBehaviour
     void Awake()
     {
         text = GetComponent<TextMeshProUGUI>();
+        highScore = PlayerPrefs.GetInt("HighScore", -1);
+        text.text = highScore.ToString("0");
     }
 
     // Update is called once per frame
@@ -30,5 +32,10 @@ public class HighScoreBehaviour : MonoBehaviour
             highScore = 0;
             text.text = highScore.ToString("0");
         }
+    }
+
+    private void OnDisable()
+    {
+        PlayerPrefs.SetInt("HighScore", highScore);
     }
 }
